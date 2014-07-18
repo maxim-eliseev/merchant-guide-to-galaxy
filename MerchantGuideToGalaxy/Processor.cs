@@ -5,6 +5,9 @@
     using System.Linq;
     using System.Text.RegularExpressions;
 
+    using MerchantGuideToGalaxy.Converters;
+    using MerchantGuideToGalaxy.Utils;
+
     public class Processor
     {
         private const string NumberQuestionStart = "How much is";

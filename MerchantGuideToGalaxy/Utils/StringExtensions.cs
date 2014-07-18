@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MerchantGuideToGalaxy
+﻿namespace MerchantGuideToGalaxy.Utils
 {
+    using System;
+
     public static class StringExtensions
     {
         // http://stackoverflow.com/a/17563994/1131855
