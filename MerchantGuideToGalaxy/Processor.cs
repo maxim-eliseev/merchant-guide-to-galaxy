@@ -108,8 +108,6 @@
             return arabic;
         }
 
-    
-
         private CommandType? GetCommandType(string inputLine)
         {
             if (inputLine.StartsWith(NumberQuestionStart, StringComparison.CurrentCultureIgnoreCase) && this.IsQuestion(inputLine))
