@@ -13,18 +13,24 @@
 
         private readonly RomanToArabicConvertor romanToArabicConvertor;
 
+        private readonly AlienToRomanConvertor alienToRomanConvertor;
+
         private readonly List<string> output = new List<string>();
-        private readonly Dictionary<string,string> alienToRomanNumberMap = new Dictionary<string, string>();
 
         public Processor(IEnumerable<string> input):
-            this(input, new RomanToArabicConvertor())
+            this(
+                    input, 
+                    new RomanToArabicConvertor(),
+                    new AlienToRomanConvertor()            
+            )
         {
         }
 
-        public Processor(IEnumerable<string> input, RomanToArabicConvertor romanToArabicConvertor)
+        public Processor(IEnumerable<string> input, RomanToArabicConvertor romanToArabicConvertor, AlienToRomanConvertor alienToRomanConvertor)
         {
             this.input = input;
             this.romanToArabicConvertor = romanToArabicConvertor;
+            this.alienToRomanConvertor = alienToRomanConvertor;
         }
 
         public IEnumerable<string> Process()
@@ -70,14 +76,14 @@
         private void DoNumberEntry(string inputLine)
         {
             var words = inputLine.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries);
-            var alienNumber = words[0];
+            var alienDigit = words[0];
             if (words[1] != "is")
             {
                 throw new ArgumentException("Wrong format:" + inputLine);
             }
-            var romanNumber = words[2];
+            var romanDigit = words[2];
 
-            alienToRomanNumberMap[alienNumber] = romanNumber;
+            alienToRomanConvertor.AddAlienDigit(alienDigit, romanDigit);
         }
 
         //// how much is pish tegj glob glob ?
@@ -96,27 +102,11 @@
 
         private int ConvertAlienToArabic(IEnumerable<string> alienDigits)
         {
-            var romanNumber = ConvertAlienToRoman(alienDigits);
+            var romanNumber = alienToRomanConvertor.Convert(alienDigits);
             int arabic = romanToArabicConvertor.Convert(romanNumber);
             return arabic;
         }
 
-        private string ConvertAlienToRoman(IEnumerable<string> alienDigits)
-        {
-            IEnumerable<string> romanDigits = alienDigits.Select(ConvertAlienToRoman);
-            var romanNumber = string.Join(string.Empty, romanDigits);
-            return romanNumber;
-        }
-
-        private string ConvertAlienToRoman(string alienDigit)
-        {
-            if (!this.alienToRomanNumberMap.ContainsKey(alienDigit))
-            {
-                throw new ArgumentException("Alien digit not found:" + alienDigit);
-            }
-
-            return alienToRomanNumberMap[alienDigit];
-        }
     
 
         private CommandType? GetCommandType(string inputLine)
