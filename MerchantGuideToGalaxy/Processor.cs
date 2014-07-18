@@ -76,14 +76,15 @@
         private void DoNumberEntry(string inputLine)
         {
             var words = inputLine.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries);
-            var alienDigit = words[0];
+            var alienSymbol = words[0];
             if (words[1] != "is")
             {
                 throw new ArgumentException("Wrong format:" + inputLine);
             }
-            var romanDigit = words[2];
 
-            alienToRomanConvertor.AddAlienDigit(alienDigit, romanDigit);
+            var romanSymbol = words[2];
+
+            alienToRomanConvertor.AddAlienSymbol(alienSymbol, romanSymbol);
         }
 
         //// how much is pish tegj glob glob ?
@@ -94,15 +95,15 @@
             preparedInputline = preparedInputline.Trim();
             var alienNumber = preparedInputline;
 
-            string[] alienDigits = alienNumber.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+            string[] alienSymbols = alienNumber.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
 
-            var arabicNumber = ConvertAlienToArabic(alienDigits);
+            var arabicNumber = ConvertAlienToArabic(alienSymbols);
             return alienNumber + " is " + arabicNumber;
         }
 
-        private int ConvertAlienToArabic(IEnumerable<string> alienDigits)
+        private int ConvertAlienToArabic(IEnumerable<string> alienSymbols)
         {
-            var romanNumber = alienToRomanConvertor.Convert(alienDigits);
+            var romanNumber = alienToRomanConvertor.Convert(alienSymbols);
             int arabic = romanToArabicConvertor.Convert(romanNumber);
             return arabic;
         }
