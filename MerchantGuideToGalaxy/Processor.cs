@@ -14,6 +14,8 @@
 
         private readonly IEnumerable<string> input;
 
+        private Context context;
+
         private readonly RomanToArabicConvertor romanToArabicConvertor;
 
         private readonly AlienToRomanConvertor alienToRomanConvertor;
@@ -21,17 +23,24 @@
         private readonly List<string> output = new List<string>();
 
         public Processor(IEnumerable<string> input):
-            this(
-                    input, 
-                    new RomanToArabicConvertor(),
-                    new AlienToRomanConvertor()            
-            )
+            this(input, new Context())
         {
         }
 
-        public Processor(IEnumerable<string> input, RomanToArabicConvertor romanToArabicConvertor, AlienToRomanConvertor alienToRomanConvertor)
+        public Processor(IEnumerable<string> input, Context context) :
+            this(
+                     input,
+                     context,
+                     new RomanToArabicConvertor(),
+                     new AlienToRomanConvertor(context)
+             )
+        {
+        }
+
+        public Processor(IEnumerable<string> input, Context context,  RomanToArabicConvertor romanToArabicConvertor, AlienToRomanConvertor alienToRomanConvertor)
         {
             this.input = input;
+            this.context = context;
             this.romanToArabicConvertor = romanToArabicConvertor;
             this.alienToRomanConvertor = alienToRomanConvertor;
         }

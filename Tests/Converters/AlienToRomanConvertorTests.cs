@@ -9,11 +9,19 @@
     [TestClass]
     public class AlienToRomanConvertorTests
     {
+        private Context context;
+
+        [TestInitialize]
+        public void Init()
+        {
+            context = new Context();
+        }
+
         [TestMethod]
         public void Given_empty_string_and_no_added_symbols_should_return_empty_string()
         {
             // Assert
-            var convertor = new AlienToRomanConvertor();
+            var convertor = new AlienToRomanConvertor(context);
 
             // Arrange
             string romanNumber = convertor.Convert(new string[0]);
@@ -26,7 +34,7 @@
         public void Given_empty_string_and_some_added_symbols_should_return_empty_string()
         {
             // Assert
-            var convertor = new AlienToRomanConvertor();
+            var convertor = new AlienToRomanConvertor(context);
             convertor.AddAlienSymbol("dfg","I");
 
             // Arrange
@@ -41,7 +49,7 @@
         public void Given_unknown_alien_symbols_should_throw_exception()
         {
             // Assert
-            var convertor = new AlienToRomanConvertor();
+            var convertor = new AlienToRomanConvertor(context);
             convertor.AddAlienSymbol("dfg", "I");
 
             // Arrange
@@ -52,7 +60,7 @@
         public void Given_known_alien_symbols_should_convert_correctly()
         {
             // Assert
-            var convertor = new AlienToRomanConvertor();
+            var convertor = new AlienToRomanConvertor(context);
             convertor.AddAlienSymbol("hds", "Z");
             convertor.AddAlienSymbol("dfg", "Q");
             

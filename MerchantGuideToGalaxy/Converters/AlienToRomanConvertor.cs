@@ -6,7 +6,12 @@
 
     public class AlienToRomanConvertor
     {
-        private readonly Dictionary<string, string> alienToRomanNumberMap = new Dictionary<string, string>();
+        private readonly IDictionary<string, string> alienToRomanNumberMap;
+
+        public AlienToRomanConvertor(Context context)
+        {
+            this.alienToRomanNumberMap = context.AlienToRomanNumberMap;
+        }
 
         public void AddAlienSymbol(string alienSymbol, string romanSymbol)
         {
@@ -22,7 +27,7 @@
 
         private string Convert(string alienSymbol)
         {
-            if (!this.alienToRomanNumberMap.ContainsKey(alienSymbol))
+            if (!this. alienToRomanNumberMap.ContainsKey(alienSymbol))
             {
                 throw new ArgumentException("Alien symbol not found:" + alienSymbol);
             }
