@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchantGuideToGalaxy", "MerchantGuideToGalaxy\MerchantGuideToGalaxy.csproj", "{B6B825A2-6BFC-4EE6-9568-28B6EBFA803B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{41A39E55-4CFD-4475-8D9A-B0E0AD5A7649}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{41A39E55-4CFD-4475-8D9A-B0E0AD5A7649}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
