@@ -11,35 +11,20 @@
 
         private readonly IEnumerable<string> input;
 
+        private readonly RomanToArabicConvertor romanToArabicConvertor;
+
         private readonly List<string> output = new List<string>();
         private readonly Dictionary<string,string> alienToRomanNumberMap = new Dictionary<string, string>();
 
-        private readonly Dictionary<char, int> romanToArabicNumberMap = new Dictionary<char, int>();
-        private readonly Dictionary<string, string> subtractionNotationRomanToSimpleRomanMap = new Dictionary<string, string>();
+        public Processor(IEnumerable<string> input):
+            this(input, new RomanToArabicConvertor())
+        {
+        }
 
-        
-
-        public Processor(IEnumerable<string> input)
+        public Processor(IEnumerable<string> input, RomanToArabicConvertor romanToArabicConvertor)
         {
             this.input = input;
-
-            romanToArabicNumberMap['I'] = 1;
-            romanToArabicNumberMap['V'] = 5;
-            romanToArabicNumberMap['X'] = 10;
-            romanToArabicNumberMap['L'] = 250;
-            romanToArabicNumberMap['C'] = 100;
-            romanToArabicNumberMap['D'] = 500;
-            romanToArabicNumberMap['M'] = 1000;
-
-            subtractionNotationRomanToSimpleRomanMap["IV"] = "IIII";
-            subtractionNotationRomanToSimpleRomanMap["IX"] = "VIIII";
-
-            subtractionNotationRomanToSimpleRomanMap["XL"] = "XXXX";
-            subtractionNotationRomanToSimpleRomanMap["XC"] = "LXXXX";
-
-            subtractionNotationRomanToSimpleRomanMap["CD"] = "CCCC";
-            subtractionNotationRomanToSimpleRomanMap["CM"] = "DCCCC";
-
+            this.romanToArabicConvertor = romanToArabicConvertor;
         }
 
         public IEnumerable<string> Process()
@@ -112,14 +97,14 @@
         private int ConvertAlienToArabic(IEnumerable<string> alienDigits)
         {
             var romanNumber = ConvertAlienToRoman(alienDigits);
-            int arabic = ConvertRomanToArabic(romanNumber);
+            int arabic = romanToArabicConvertor.Convert(romanNumber);
             return arabic;
         }
 
         private string ConvertAlienToRoman(IEnumerable<string> alienDigits)
         {
             IEnumerable<string> romanDigits = alienDigits.Select(ConvertAlienToRoman);
-            var romanNumber = string.Join("", romanDigits);
+            var romanNumber = string.Join(string.Empty, romanDigits);
             return romanNumber;
         }
 
@@ -132,37 +117,7 @@
 
             return alienToRomanNumberMap[alienDigit];
         }
-
-        private int ConvertRomanToArabic(string romanNumber)
-        {
-            foreach (var kvp in subtractionNotationRomanToSimpleRomanMap)
-            {
-                var subtractivePair = kvp.Key; // eg IV
-                var addableSubstitute = kvp.Value; // eg IIII
-                romanNumber = romanNumber.Replace(subtractivePair, addableSubstitute);
-            }
-
-            //// Now all digits of the roman number are addable. Each digit represents one arabic number.
-
-            int total = 0;
-            foreach (char romanDigit in romanNumber)
-            {
-                int arabicValue = this.ConvertRomanToArabic(romanDigit);
-                total += arabicValue;
-            }
-
-            return total;
-        }
-
-        private int ConvertRomanToArabic(char romanDigit)
-        {
-            if (!this.romanToArabicNumberMap.ContainsKey(romanDigit))
-            {
-                throw new ArgumentException("Roman digit not found:" + romanDigit);
-            }
-
-            return romanToArabicNumberMap[romanDigit];
-        }
+    
 
         private CommandType? GetCommandType(string inputLine)
         {
@@ -182,7 +137,6 @@
         {
             return line.Contains("?");
         }
-
 
         public enum CommandType
         {

@@ -7,3 +7,6 @@ C:\Repositories\Learning\MerchantGuideToGalaxy\MerchantGuideToGalaxy\MerchantGui
 C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\bin\Debug\MerchantGuideToGalaxy.exe.config
 C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\obj\Debug\MerchantGuideToGalaxy.exe
 C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\obj\Debug\MerchantGuideToGalaxy.pdb
+C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\obj\Debug\MerchantGuideToGalaxy.csprojResolveAssemblyReference.cache
+C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\bin\Debug\MerchantGuideToGalaxy.exe
+C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\bin\Debug\MerchantGuideToGalaxy.pdb
