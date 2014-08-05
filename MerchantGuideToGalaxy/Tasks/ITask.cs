@@ -1,7 +1,7 @@
-﻿namespace MerchantGuideToGalaxy.Commands
+﻿namespace MerchantGuideToGalaxy.Tasks
 {
     public interface ITask
     {
-        string Run(string line);
+        void Run(string line);
     }
 }

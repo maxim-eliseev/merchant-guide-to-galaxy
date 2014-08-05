@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MerchantGuideToGalaxy
 {
-    using MerchantGuideToGalaxy.Converters;
-
     public class Context
     {
         public readonly IDictionary<string, string> AlienToRomanNumberMap = new Dictionary<string, string>();
+
+        public readonly IList<string> Output = new List<string>();
     }
 }

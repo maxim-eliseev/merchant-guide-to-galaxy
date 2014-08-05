@@ -3,9 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text.RegularExpressions;
 
-    using MerchantGuideToGalaxy.Converters;
+    using MerchantGuideToGalaxy.Tasks;
     using MerchantGuideToGalaxy.Utils;
 
     public class Processor
@@ -14,49 +13,31 @@
 
         private readonly IEnumerable<string> input;
 
-        private Context context;
+        private readonly Context context;
 
-        private readonly RomanToArabicConvertor romanToArabicConvertor;
-
-        private readonly AlienToRomanConvertor alienToRomanConvertor;
-
-        private readonly List<string> output = new List<string>();
-
-        public Processor(IEnumerable<string> input):
+        public Processor(IEnumerable<string> input) :
             this(input, new Context())
         {
         }
 
-        public Processor(IEnumerable<string> input, Context context) :
-            this(
-                     input,
-                     context,
-                     new RomanToArabicConvertor(),
-                     new AlienToRomanConvertor(context)
-             )
-        {
-        }
-
-        public Processor(IEnumerable<string> input, Context context,  RomanToArabicConvertor romanToArabicConvertor, AlienToRomanConvertor alienToRomanConvertor)
+        public Processor(IEnumerable<string> input, Context context)
         {
             this.input = input;
             this.context = context;
-            this.romanToArabicConvertor = romanToArabicConvertor;
-            this.alienToRomanConvertor = alienToRomanConvertor;
         }
 
         public IEnumerable<string> Process()
         {
-            if (!input.Any())
+            if (!this.input.Any())
             {
-                this.output.Add("Input is empty");
-                return output;
+                this.context.Output.Add("Input is empty");
+                return this.context.Output;
             }
 
-            if (!input.Any(IsQuestion))
+            if (!this.input.Any(this.IsQuestion))
             {
-                this.output.Add("Input has no questions");
-                return output;
+                this.context.Output.Add("Input has no questions");
+                return this.context.Output;
             }
 
             foreach (var inputLine in input)
@@ -64,7 +45,7 @@
                 ProcessCommand(inputLine);
             }
 
-            return this.output;
+            return this.context.Output;
         }
 
         private void ProcessCommand(string inputLine)
@@ -76,8 +57,7 @@
                     DoNumberEntry(inputLine);
                     break;
                 case CommandType.NumberQuestion:
-                    var response = AskNumberQuestion(inputLine);
-                    output.Add(response);
+                    this.AnswerNumberQuestion(inputLine);                    
                     break;
                 default:
                     throw new System.NotImplementedException();
@@ -87,37 +67,15 @@
         ////  glob is I
         private void DoNumberEntry(string inputLine)
         {
-            var words = inputLine.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries);
-            var alienSymbol = words[0];
-            if (words[1] != "is")
-            {
-                throw new ArgumentException("Wrong format:" + inputLine);
-            }
-
-            var romanSymbol = words[2];
-
-            alienToRomanConvertor.AddAlienSymbol(alienSymbol, romanSymbol);
+            var t = new AlienNumberParsingTask(context);
+            t.Run(inputLine);
         }
 
         //// how much is pish tegj glob glob ?
-        private string AskNumberQuestion(string inputLine)
+        private void AnswerNumberQuestion(string inputLine)
         {
-            var preparedInputline = Regex.Replace(inputLine, NumberQuestionStart, string.Empty, RegexOptions.IgnoreCase);
-            preparedInputline = preparedInputline.Replace("?", string.Empty);
-            preparedInputline = preparedInputline.Trim();
-            var alienNumber = preparedInputline;
-
-            string[] alienSymbols = alienNumber.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-
-            var arabicNumber = ConvertAlienToArabic(alienSymbols);
-            return alienNumber + " is " + arabicNumber;
-        }
-
-        private int ConvertAlienToArabic(IEnumerable<string> alienSymbols)
-        {
-            var romanNumber = alienToRomanConvertor.Convert(alienSymbols);
-            int arabic = romanToArabicConvertor.Convert(romanNumber);
-            return arabic;
+            var t = new AlienNumberConversionResponderTask(context);
+            t.Run(inputLine);
         }
 
         private CommandType? GetCommandType(string inputLine)
