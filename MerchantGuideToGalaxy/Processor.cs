@@ -40,42 +40,34 @@
                 return this.context.Output;
             }
 
-            foreach (var inputLine in input)
+            foreach (var inputLine in this.input)
             {
-                ProcessCommand(inputLine);
+                var task = this.CreateTask(inputLine);
+                task.Run(inputLine);
             }
 
             return this.context.Output;
         }
 
-        private void ProcessCommand(string inputLine)
+        private ITask CreateTask(string inputLine)
         {
-            var commandType = GetCommandType(inputLine);
+            ITask task;
+
+            var commandType = this.GetCommandType(inputLine);
             switch (commandType)
             {
                 case CommandType.NumberEntry:
-                    DoNumberEntry(inputLine);
+                    ////  glob is I
+                    task = new AlienNumberParsingTask(this.context);
                     break;
                 case CommandType.NumberQuestion:
-                    this.AnswerNumberQuestion(inputLine);                    
+                    //// how much is pish tegj glob glob ?
+                    task = new AlienNumberConversionResponderTask(this.context);
                     break;
                 default:
                     throw new System.NotImplementedException();
             }
-        }
-
-        ////  glob is I
-        private void DoNumberEntry(string inputLine)
-        {
-            var t = new AlienNumberParsingTask(context);
-            t.Run(inputLine);
-        }
-
-        //// how much is pish tegj glob glob ?
-        private void AnswerNumberQuestion(string inputLine)
-        {
-            var t = new AlienNumberConversionResponderTask(context);
-            t.Run(inputLine);
+            return task;
         }
 
         private CommandType? GetCommandType(string inputLine)
