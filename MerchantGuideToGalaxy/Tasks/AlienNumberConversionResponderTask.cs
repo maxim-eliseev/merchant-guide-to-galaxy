@@ -12,16 +12,12 @@ namespace MerchantGuideToGalaxy.Tasks
     {
         private readonly Context context;
 
-        private readonly RomanToArabicConvertor romanToArabicConvertor;
-
-        private readonly AlienToRomanConvertor alienToRomanConvertor;
-
-
+        private readonly AlienToArabicConvertor alienToArabicConvertor;
+        
         public AlienNumberConversionResponderTask(Context context)
         {
             this.context = context;
-            romanToArabicConvertor = new RomanToArabicConvertor();
-            alienToRomanConvertor = new AlienToRomanConvertor(context);
+            alienToArabicConvertor = new AlienToArabicConvertor(context);
         }
 
         //// how much is pish tegj glob glob ?
@@ -34,16 +30,9 @@ namespace MerchantGuideToGalaxy.Tasks
 
             string[] alienSymbols = alienNumber.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
 
-            var arabicNumber = ConvertAlienToArabic(alienSymbols);
+            var arabicNumber = alienToArabicConvertor.Convert(alienSymbols);
             var response = alienNumber + " is " + arabicNumber;
             context.Output.Add(response);
-        }
-
-        private int ConvertAlienToArabic(IEnumerable<string> alienSymbols)
-        {
-            var romanNumber = alienToRomanConvertor.Convert(alienSymbols);
-            int arabic = romanToArabicConvertor.Convert(romanNumber);
-            return arabic;
         }
     }
 }

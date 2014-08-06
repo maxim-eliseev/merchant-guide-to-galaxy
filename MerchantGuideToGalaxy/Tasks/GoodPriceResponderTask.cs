@@ -12,9 +12,12 @@
     {
         private readonly Context context;
 
+        private readonly AlienToArabicConvertor alienToArabicConvertor;
+
         public GoodPriceResponderTask(Context context)
         {
             this.context = context;
+            alienToArabicConvertor = new AlienToArabicConvertor(context);
         }
 
         ////  how many Credits is glob prok Silver ?
@@ -35,8 +38,7 @@
             }
             decimal priceOfUnit = context.GoodsPricesPerUnit[goodsName];
 
-            var romanNumber = new AlienToRomanConvertor(context).Convert(alienNumber);
-            var arabicNumber = new RomanToArabicConvertor().Convert(romanNumber);
+            var arabicNumber = alienToArabicConvertor.Convert(alienNumber);
             int numberOfUnits = arabicNumber;
 
             decimal totalPrice = priceOfUnit * numberOfUnits;

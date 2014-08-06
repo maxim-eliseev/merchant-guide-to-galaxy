@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Converters\AlienToRomanConvertorTests.cs" />
+    <Compile Include="Converters\AlienToArabicConvertorTests.cs" />
     <Compile Include="Converters\RomanToArabicConvertorTests.cs" />
     <Compile Include="ProcessorIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

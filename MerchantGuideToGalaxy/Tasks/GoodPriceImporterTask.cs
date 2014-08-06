@@ -44,26 +44,14 @@ namespace MerchantGuideToGalaxy.Tasks
             string goodName = words[lastWordIndex - 3]; // Just before "is"
 
             IEnumerable<string> alienNumber = words.Take(words.Count() - 4); // Everything before good name is an alien number (glob glob tegj ...)
-            ValidateAlienNumber(alienNumber);
+            
 
-            var romanNumber = new AlienToRomanConvertor(context).Convert(alienNumber);
-            var arabicNumber = new RomanToArabicConvertor().Convert(romanNumber);
+            var arabicNumber = new AlienToArabicConvertor(context).Convert(alienNumber);
             int numberOfUnits = arabicNumber;
 
             var pricePerUnit = totalPriceAsNumber / numberOfUnits;
 
             context.GoodsPricesPerUnit[goodName] = pricePerUnit;
-        }
-
-        private void ValidateAlienNumber(IEnumerable<string> alienNumber)
-        {
-            foreach (var alienSymbol in alienNumber)
-            {
-                if (!context.AlienToRomanNumberMap.ContainsKey(alienSymbol))
-                {
-                    throw new ArgumentException("Unknown alien symbol:" + alienSymbol);
-                }
-            }
         }
     }
 }
