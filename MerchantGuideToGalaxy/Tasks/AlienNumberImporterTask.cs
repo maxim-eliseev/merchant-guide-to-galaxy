@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace MerchantGuideToGalaxy.Tasks
 {
-    public class AlienNumberParsingTask : ITask
+    public class AlienNumberImporterTask : ITask
     {
         private readonly Context context;
 
-        public AlienNumberParsingTask(Context context)
+        public AlienNumberImporterTask(Context context)
         {
             this.context = context;
         }

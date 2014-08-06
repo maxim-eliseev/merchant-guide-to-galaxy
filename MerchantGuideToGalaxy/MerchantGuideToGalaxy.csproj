@@ -46,7 +46,7 @@
     <Compile Include="Tasks\TaskFactory.cs" />
     <Compile Include="Tasks\AlienNumberConversionResponderTask.cs" />
     <Compile Include="Tasks\ITask.cs" />
-    <Compile Include="Tasks\AlienNumberParsingTask.cs" />
+    <Compile Include="Tasks\AlienNumberImporterTask.cs" />
     <Compile Include="Tasks\TaskType.cs" />
     <Compile Include="Utils\ParsingException.cs" />
     <Compile Include="Processor.cs" />
