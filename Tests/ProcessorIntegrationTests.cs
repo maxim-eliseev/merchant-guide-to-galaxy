@@ -65,6 +65,20 @@
 
             // Assert
             Assert.IsTrue(results.Single() == "glob prok Silver is 68 Credits");
-        }        
+        }     
+   
+        [TestMethod]
+        public void Given_incorrect_question_when_Run_is_called_should_return_error_message()
+        {
+            // Arrange
+            // Act
+            var results = new Processor(new[]
+                                                      {
+                                                          "how much wood could a woodchuck chuck if a woodchuck could chuck wood ?"
+                                                      }).Process();
+
+            // Assert
+            Assert.IsTrue(results.Single() == "I have no idea what you are talking about");
+        }             
     }
 }
