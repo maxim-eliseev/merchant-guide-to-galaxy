@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Converters\AlienToRomanConvertor.cs" />
-    <Compile Include="TaskFactory.cs" />
+    <Compile Include="Tasks\TaskFactory.cs" />
     <Compile Include="Tasks\AlienNumberConversionResponderTask.cs" />
     <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Tasks\AlienNumberParsingTask.cs" />

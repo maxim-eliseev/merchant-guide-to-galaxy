@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using MerchantGuideToGalaxy.Tasks;
+
     public class Processor
     {
         private readonly IEnumerable<string> input;
