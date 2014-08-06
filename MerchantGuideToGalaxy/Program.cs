@@ -2,22 +2,30 @@
 {
     using System;
     using System.IO;
+    using System.Linq;
 
     public class Program
     {
+        private const string InputFileName = "input.txt";
+        private const string OutputFileName = "output.txt";
+
         public static void Main(string[] args)
         {
-            var inputfileName = "input.txt";
-            if (!File.Exists(inputfileName))
+            if (!File.Exists(InputFileName))
             {
-                Console.WriteLine("File does not exist:" + inputfileName);
-                Console.ReadKey();
-                return;
+                Console.WriteLine("File does not exist:" + InputFileName);
+            }
+            else
+            {
+                var input = File.ReadAllLines(InputFileName);
+                var output = new Processor(input).Process();
+
+                File.WriteAllLines(OutputFileName, output);
+
+                output.ToList().ForEach(Console.WriteLine);
             }
 
-            var input = File.ReadAllLines(inputfileName);
-            var output = new Processor(input).Process();
-            File.WriteAllLines("output.txt", output);
+            Console.ReadKey();
         }
     }
 }
