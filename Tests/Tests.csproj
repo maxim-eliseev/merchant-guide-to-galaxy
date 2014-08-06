@@ -52,8 +52,9 @@
   <ItemGroup>
     <Compile Include="Converters\AlienToRomanConvertorTests.cs" />
     <Compile Include="Converters\RomanToArabicConvertorTests.cs" />
-    <Compile Include="ProcessorTests.cs" />
+    <Compile Include="ProcessorIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\TaskFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MerchantGuideToGalaxy\MerchantGuideToGalaxy.csproj">
