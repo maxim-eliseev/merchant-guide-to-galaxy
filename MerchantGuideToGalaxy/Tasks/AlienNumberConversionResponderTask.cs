@@ -6,11 +6,10 @@ namespace MerchantGuideToGalaxy.Tasks
     using System.Text.RegularExpressions;
 
     using MerchantGuideToGalaxy.Converters;
+    using MerchantGuideToGalaxy.Utils;
 
     public class AlienNumberConversionResponderTask : ITask
     {
-        private const string NumberQuestionStart = "How much is";
-
         private readonly Context context;
 
         private readonly RomanToArabicConvertor romanToArabicConvertor;
@@ -25,9 +24,10 @@ namespace MerchantGuideToGalaxy.Tasks
             alienToRomanConvertor = new AlienToRomanConvertor(context);
         }
 
+        //// how much is pish tegj glob glob ?
         public void Run(string inputLine)
         {
-            var preparedInputline = Regex.Replace(inputLine, NumberQuestionStart, string.Empty, RegexOptions.IgnoreCase);
+            var preparedInputline = Regex.Replace(inputLine, LineParsingUtility.NumberQuestionStart, string.Empty, RegexOptions.IgnoreCase);
             preparedInputline = preparedInputline.Replace("?", string.Empty);
             preparedInputline = preparedInputline.Trim();
             var alienNumber = preparedInputline;

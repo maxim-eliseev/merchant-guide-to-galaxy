@@ -4,6 +4,7 @@
     using System.Linq;
 
     using MerchantGuideToGalaxy.Tasks;
+    using MerchantGuideToGalaxy.Utils;
 
     public class Processor
     {
@@ -33,7 +34,7 @@
                 return this.context.Output;
             }
 
-            if (!this.input.Any(this.IsQuestion))
+            if (!this.input.Any(LineParsingUtility.IsQuestion))
             {
                 this.context.Output.Add("Input has no questions");
                 return this.context.Output;
@@ -48,9 +49,5 @@
             return this.context.Output;
         }
 
-        private bool IsQuestion(string line)
-        {
-            return line.Contains("?");
-        }
     }
 }
