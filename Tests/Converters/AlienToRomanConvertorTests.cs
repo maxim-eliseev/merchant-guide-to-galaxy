@@ -20,27 +20,27 @@
         [TestMethod]
         public void Given_empty_string_and_no_added_symbols_should_return_empty_string()
         {
-            // Assert
+            // Arrange
             var convertor = new AlienToRomanConvertor(context);
 
-            // Arrange
+            // Act
             string romanNumber = convertor.Convert(new string[0]);
 
-            // Act
+            // Assert
             Assert.AreEqual(string.Empty, romanNumber);
         }
 
         [TestMethod]
         public void Given_empty_string_and_some_added_symbols_should_return_empty_string()
         {
-            // Assert
+            // Arrange
             var convertor = new AlienToRomanConvertor(context);
             convertor.AddAlienSymbol("dfg","I");
 
-            // Arrange
+            // Act
             string romanNumber = convertor.Convert(new string[0]);
 
-            // Act
+            // Assert
             Assert.AreEqual(string.Empty, romanNumber);
         }
 
@@ -48,23 +48,23 @@
         [ExpectedException(typeof(ArgumentException))]
         public void Given_unknown_alien_symbols_should_throw_exception()
         {
-            // Assert
+            // Arrange
             var convertor = new AlienToRomanConvertor(context);
             convertor.AddAlienSymbol("dfg", "I");
 
-            // Arrange
+            // Act
             convertor.Convert(new string[]{"hdgdshd"});
         }
 
         [TestMethod]
         public void Given_known_alien_symbols_should_convert_correctly()
         {
-            // Assert
+            // Arrange
             var convertor = new AlienToRomanConvertor(context);
             convertor.AddAlienSymbol("hds", "Z");
             convertor.AddAlienSymbol("dfg", "Q");
-            
-            // Arrange
+
+            // Act
             var romanNumber = convertor.Convert(new string[] { "dfg","hds" });
 
             // Assert
