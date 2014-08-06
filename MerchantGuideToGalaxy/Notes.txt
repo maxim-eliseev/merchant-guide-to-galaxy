@@ -1,7 +1,11 @@
-﻿To do
-1. Good names are case-sensitive at the moment. "Silver" and "silver" will be considered different goods.
-2. To try IoC container
-3. To use RegExes for parsing
-4. To break up large methods 
-5. To move line recognition logic to task classes. To ensure each task class does not recognise lines belonging to other task classes.
-6. To mark classes as internal
+﻿Assumptions
+- Logging is out of scope
+- IoC is out of scope
+
+To do
+- Good names are case-sensitive at the moment. "Silver" and "silver" will be considered different goods.
+- To try IoC container
+- To use RegExes for parsing
+- To break up large methods 
+- To move line recognition logic to task classes. To ensure each task class does not recognise lines belonging to other task classes.
+- To mark classes as internal

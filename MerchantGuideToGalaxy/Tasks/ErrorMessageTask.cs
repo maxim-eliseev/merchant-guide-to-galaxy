@@ -2,7 +2,9 @@
 {
     public class ErrorMessageTask : ITask
     {
-        private Context context;
+        public const string GenericMessage = "I have no idea what you are talking about";
+
+        private readonly Context context;
 
         public ErrorMessageTask(Context context)
         {
@@ -10,9 +12,8 @@
         }
 
         public void Run(string line)
-        {
-            var message = "I have no idea what you are talking about";
-            context.Output.Add(message);
+        {            
+            context.Output.Add(GenericMessage);
         }
     }
 }

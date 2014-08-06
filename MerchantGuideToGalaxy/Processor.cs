@@ -1,5 +1,6 @@
 ﻿namespace MerchantGuideToGalaxy
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -42,12 +43,25 @@
 
             foreach (var inputLine in this.input)
             {
-                var task = taskFactory.CreateTask(inputLine);
-                task.Run(inputLine);
+                this.ProcessLine(inputLine);
             }
 
             return this.context.Output;
         }
 
+        private void ProcessLine(string inputLine)
+        {
+            var task = this.taskFactory.CreateTask(inputLine);
+
+            try
+            {
+                task.Run(inputLine);
+            }
+            catch (ArgumentException e)
+            {
+                this.context.Output.Add(ErrorMessageTask.GenericMessage);
+                this.context.Output.Add("Details: " + e.Message);
+            }
+        }
     }
 }

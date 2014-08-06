@@ -79,6 +79,21 @@
 
             // Assert
             Assert.IsTrue(results.Single() == "I have no idea what you are talking about");
-        }             
+        }
+
+        [TestMethod]
+        public void Given_malformed_question_when_Run_is_called_should_return_error_message_and_exception_details()
+        {
+            // Arrange
+            // Act
+            var results = new Processor(new[]
+                                                      {
+                                                          "glob is I",
+                                                          "how many Credits is glob glob UNKNOWN ?"                                                          
+                                                      }).Process();
+
+            // Assert
+            Assert.IsTrue(results.Count() == 2);
+        }     
     }
 }
