@@ -18,9 +18,28 @@
             //// Please note that order of clauses below is important.
 
             //// how much is pish tegj glob glob ?
-            if (inputLine.StartsWith(LineParsingUtility.NumberQuestionStart, StringComparison.CurrentCultureIgnoreCase) && LineParsingUtility.IsQuestion(inputLine))
+            if (
+                inputLine.StartsWith(LineParsingUtility.AlienNumberQuestionStart, StringComparison.CurrentCultureIgnoreCase) && 
+                LineParsingUtility.IsQuestion(inputLine))
             {
                 return new AlienNumberConversionResponderTask(this.context);
+            }
+
+            //// how many Credits is glob prok Silver ?
+            if (
+                inputLine.StartsWith(LineParsingUtility.GoodsPriceQuestionStart, StringComparison.CurrentCultureIgnoreCase) &&
+                LineParsingUtility.IsQuestion(inputLine))
+            {
+                return new GoodPriceResponderTask(this.context);
+            }
+
+            //// glob glob Silver is 34 Credits
+            if (
+                inputLine.Contains("Credits", StringComparison.CurrentCultureIgnoreCase) &&
+                inputLine.Contains("is", StringComparison.CurrentCultureIgnoreCase)
+                )
+            {
+                return new GoodPriceImporterTask(this.context);
             }
 
             ////  glob is I            

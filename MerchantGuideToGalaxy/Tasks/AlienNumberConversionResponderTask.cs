@@ -27,7 +27,7 @@ namespace MerchantGuideToGalaxy.Tasks
         //// how much is pish tegj glob glob ?
         public void Run(string inputLine)
         {
-            var preparedInputline = Regex.Replace(inputLine, LineParsingUtility.NumberQuestionStart, string.Empty, RegexOptions.IgnoreCase);
+            var preparedInputline = Regex.Replace(inputLine, LineParsingUtility.AlienNumberQuestionStart, string.Empty, RegexOptions.IgnoreCase);
             preparedInputline = preparedInputline.Replace("?", string.Empty);
             preparedInputline = preparedInputline.Trim();
             var alienNumber = preparedInputline;

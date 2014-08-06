@@ -2,7 +2,8 @@
 {
     public static class LineParsingUtility
     {
-        public const string NumberQuestionStart = "How much is";
+        public const string AlienNumberQuestionStart = "How much is";
+        public const string GoodsPriceQuestionStart = "how many Credits is";
 
         public static bool IsQuestion(string line)
         {

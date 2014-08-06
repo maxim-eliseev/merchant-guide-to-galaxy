@@ -6,16 +6,11 @@
 
     public class AlienToRomanConvertor
     {
-        private readonly IDictionary<string, string> alienToRomanNumberMap;
+        private readonly Context context;
 
         public AlienToRomanConvertor(Context context)
         {
-            this.alienToRomanNumberMap = context.AlienToRomanNumberMap;
-        }
-
-        public void AddAlienSymbol(string alienSymbol, string romanSymbol)
-        {
-            this.alienToRomanNumberMap[alienSymbol] = romanSymbol;
+            this.context = context;
         }
 
         public string Convert(IEnumerable<string> alienSymbols)
@@ -27,13 +22,12 @@
 
         private string Convert(string alienSymbol)
         {
-            if (!this. alienToRomanNumberMap.ContainsKey(alienSymbol))
+            if (!this.context.AlienToRomanNumberMap.ContainsKey(alienSymbol))
             {
                 throw new ArgumentException("Alien symbol not found:" + alienSymbol);
             }
 
-            return this.alienToRomanNumberMap[alienSymbol];
+            return this.context.AlienToRomanNumberMap[alienSymbol];
         }
-
     }
 }

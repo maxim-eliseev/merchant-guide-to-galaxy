@@ -49,5 +49,22 @@
             // Assert
             Assert.IsTrue(results.Single() == "pish tegj glob glob is 42");
         }
+
+        [TestMethod]
+        public void Given_correct_number_data_and_silver_price_and_price_question_when_Run_is_called_should_return_correct_answer()
+        {
+            // Arrange
+            // Act
+            var results = new Processor(new[]
+                                                      {
+                                                          "glob is I",
+                                                          "prok is V",
+                                                          "glob glob Silver is 34 Credits",
+                                                          "how many Credits is glob prok Silver ?"                                                          
+                                                      }).Process();
+
+            // Assert
+            Assert.IsTrue(results.Single() == "glob prok Silver is 68 Credits");
+        }        
     }
 }

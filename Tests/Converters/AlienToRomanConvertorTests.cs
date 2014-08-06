@@ -35,7 +35,7 @@
         {
             // Arrange
             var convertor = new AlienToRomanConvertor(context);
-            convertor.AddAlienSymbol("dfg","I");
+            this.AddAlienSymbol("dfg","I");
 
             // Act
             string romanNumber = convertor.Convert(new string[0]);
@@ -50,7 +50,7 @@
         {
             // Arrange
             var convertor = new AlienToRomanConvertor(context);
-            convertor.AddAlienSymbol("dfg", "I");
+            this.AddAlienSymbol("dfg", "I");
 
             // Act
             convertor.Convert(new string[]{"hdgdshd"});
@@ -61,8 +61,8 @@
         {
             // Arrange
             var convertor = new AlienToRomanConvertor(context);
-            convertor.AddAlienSymbol("hds", "Z");
-            convertor.AddAlienSymbol("dfg", "Q");
+            this.AddAlienSymbol("hds", "Z");
+            this.AddAlienSymbol("dfg", "Q");
 
             // Act
             var romanNumber = convertor.Convert(new string[] { "dfg","hds" });
@@ -71,6 +71,9 @@
             Assert.AreEqual("QZ", romanNumber);
         }
 
-
+        public void AddAlienSymbol(string alienSymbol, string romanSymbol)
+        {
+            this.context.AlienToRomanNumberMap[alienSymbol] = romanSymbol;
+        }
     }
 }

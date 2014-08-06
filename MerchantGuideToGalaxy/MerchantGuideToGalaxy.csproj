@@ -43,11 +43,14 @@
   <ItemGroup>
     <Compile Include="Context.cs" />
     <Compile Include="Converters\AlienToRomanConvertor.cs" />
+    <Compile Include="Tasks\GoodPriceResponderTask.cs" />
+    <Compile Include="Tasks\GoodPriceImporterTask.cs" />
     <Compile Include="Tasks\TaskFactory.cs" />
     <Compile Include="Tasks\AlienNumberConversionResponderTask.cs" />
     <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Tasks\AlienNumberImporterTask.cs" />
     <Compile Include="Tasks\TaskType.cs" />
+    <Compile Include="Utils\LinqExtensions.cs" />
     <Compile Include="Utils\ParsingException.cs" />
     <Compile Include="Processor.cs" />
     <Compile Include="Program.cs" />
@@ -58,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Notes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
