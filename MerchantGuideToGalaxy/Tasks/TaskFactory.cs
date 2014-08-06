@@ -48,6 +48,11 @@
                 return new AlienNumberImporterTask(this.context);
             }
 
+            if (string.IsNullOrWhiteSpace(inputLine))
+            {
+                return new NoOperationTask();
+            }
+
             return new ErrorMessageTask(context);
         }
     }

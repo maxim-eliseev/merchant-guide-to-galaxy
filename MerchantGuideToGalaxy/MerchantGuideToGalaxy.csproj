@@ -44,6 +44,7 @@
     <Compile Include="Context.cs" />
     <Compile Include="Converters\AlienToRomanConvertor.cs" />
     <Compile Include="Converters\AlienToArabicConvertor.cs" />
+    <Compile Include="Tasks\NoOperationTask.cs" />
     <Compile Include="Tasks\ErrorMessageTask.cs" />
     <Compile Include="Tasks\GoodPriceResponderTask.cs" />
     <Compile Include="Tasks\GoodPriceImporterTask.cs" />

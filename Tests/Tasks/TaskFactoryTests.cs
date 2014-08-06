@@ -34,6 +34,12 @@
             AssertTaskType("how many Credits is glob prok Silver ?", typeof(GoodPriceResponderTask));
         }
 
+        [TestMethod]
+        public void Given_whitespace_line_when_CreateTask_is_called_should_create_appropriate_task()
+        {
+            AssertTaskType("    ", typeof(NoOperationTask));
+        }
+
         private static void AssertTaskType(string line, Type expectedType)
         {
             // Arrange
