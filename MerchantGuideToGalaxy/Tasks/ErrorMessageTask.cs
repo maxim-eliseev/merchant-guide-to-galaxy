@@ -1,5 +1,8 @@
 ﻿namespace MerchantGuideToGalaxy.Tasks
 {
+    /// <summary>
+    /// Processes any line which is not processed by other tasks
+    /// </summary>
     public class ErrorMessageTask : ITask
     {
         public const string GenericMessage = "I have no idea what you are talking about";

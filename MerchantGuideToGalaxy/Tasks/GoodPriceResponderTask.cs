@@ -8,6 +8,12 @@
     using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Utils;
 
+    /// <summary>
+    /// Processes lines which ask questions to calculate price of a specific amount of goods (set by an alien number)
+    /// </summary>
+    /// <example>
+    ///  how many Credits is glob prok Silver ?
+    /// </example>
     public class GoodPriceResponderTask : ITask
     {
         private const string MatchingPattern = @"how many Credits is ([\w\s]+) ?";
@@ -34,7 +40,6 @@
             return inputLine.IsMatch(MatchingPattern);
         }
 
-        ////  how many Credits is glob prok Silver ?
         public void Run(string inputLine)
         {
             var goodsNameAndAmountAsString = inputLine.MatchOneGroup(MatchingPattern);

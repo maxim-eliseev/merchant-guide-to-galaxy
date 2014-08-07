@@ -7,6 +7,12 @@
     using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Utils;
 
+    /// <summary>
+    /// Processes lines which import good prices into the system.
+    /// </summary>
+    /// <example>
+    ///  glob glob Silver is 34 Credits           
+    /// </example>
     public class GoodPriceImporterTask : ITask
     {
         private const string MatchingPattern = @"(.+) is (\w+) Credits";
@@ -30,7 +36,6 @@
             return inputLine.IsMatch(MatchingPattern);
         }
 
-        ////  glob glob Silver is 34 Credits
         public void Run(string inputLine)
         {
             var extractedData = inputLine.MatchTwoGroups(MatchingPattern);

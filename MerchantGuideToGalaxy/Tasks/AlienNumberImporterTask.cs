@@ -3,7 +3,7 @@
     using MerchantGuideToGalaxy.Utils;
 
     /// <summary>
-    /// Processes lines which import alien symbols into system.
+    /// Processes lines which import alien symbols into the system.
     /// </summary>
     /// <example>
     ///  glob is I            

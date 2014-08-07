@@ -8,6 +8,12 @@ namespace MerchantGuideToGalaxy.Tasks
     using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Utils;
 
+    /// <summary>
+    /// Processes lines which ask questions to convert an alien number to an arabic number
+    /// </summary>
+    /// <example>
+    /// how much is pish tegj glob glob ?        
+    /// </example>
     public class AlienNumberConversionResponderTask : ITask
     {
         private const string MatchingPattern = @"how much is ([\w\s]+)?";
@@ -34,7 +40,6 @@ namespace MerchantGuideToGalaxy.Tasks
             return inputLine.IsMatch(MatchingPattern);
         }
 
-        //// how much is pish tegj glob glob ?
         public void Run(string inputLine)
         {
             var alienNumberAsString = inputLine.MatchOneGroup(MatchingPattern);
