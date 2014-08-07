@@ -26,7 +26,7 @@
 
         public IEnumerable<string> Process(IEnumerable<string> input)
         {
-            this.context.Clear();
+            this.context.Clear(); // This is to ensure subsequent calls do not reuse context from previous calls
 
             if (!input.Any())
             {
