@@ -18,10 +18,10 @@
             this.Bind<ITask>().To<EmptyLineProcessingTask>();
 
             this.Bind<ITask>().To<AlienNumberImporterTask>();
-            this.Bind<ITask>().To<GoodPriceImporterTask>();
+            this.Bind<ITask>().To<MineralPriceImporterTask>();
 
-            this.Bind<ITask>().To<AlienNumberConversionResponderTask>();
-            this.Bind<ITask>().To<GoodPriceResponderTask>();
+            this.Bind<ITask>().To<AlienNumberQuestionAnswererTask>();
+            this.Bind<ITask>().To<MineralPriceQuestionAnswererTask>();
 
             this.Bind<ITask>().To<ErrorMessageTask>();
 
@@ -31,9 +31,9 @@
             //            {
             //                new EmptyLineProcessingTask(),      
             //                new AlienNumberImporterTask(context),
-            //                new GoodPriceImporterTask(context),
-            //                new AlienNumberConversionResponderTask(context),
-            //                new GoodPriceResponderTask(context),
+            //                new MineralPriceImporterTask(context),
+            //                new AlienNumberQuestionAnswererTask(context),
+            //                new MineralPriceQuestionAnswererTask(context),
             //                new ErrorMessageTask(context) // This task runs on any line. It must be the last in task list.
             ////          };
         }

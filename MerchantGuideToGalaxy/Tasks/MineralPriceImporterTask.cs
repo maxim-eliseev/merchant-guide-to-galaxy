@@ -9,12 +9,12 @@
     using MerchantGuideToGalaxy.Utils;
 
     /// <summary>
-    /// Processes lines which import good prices into the system.
+    /// Processes lines which import mineral prices into the system.
     /// </summary>
     /// <example>
     ///  glob glob Silver is 34 Credits           
     /// </example>
-    public class GoodPriceImporterTask : ITask
+    public class MineralPriceImporterTask : ITask
     {
         private const string MatchingPattern = @"(.+) is (\w+) Credits";
         //// (.+) is one or more any characters (including whitespace)
@@ -22,9 +22,9 @@
 
         private readonly Context context;
 
-        private AlienToArabicConvertor alienToArabicConvertor;
+        private readonly AlienToArabicConvertor alienToArabicConvertor;
 
-        public GoodPriceImporterTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
+        public MineralPriceImporterTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
             this.alienToArabicConvertor = alienToArabicConvertor;
@@ -45,7 +45,7 @@
             var extractedData = inputLine.MatchTwoGroups(MatchingPattern);
             if (extractedData == null)
             {
-                throw new ArgumentException("Input line cannot be parsed by GoodPriceImporterTask:" + inputLine);
+                throw new ArgumentException("Input line cannot be parsed by MineralPriceImporterTask:" + inputLine);
             }
 
             var goodsNameAndAmountAsString = extractedData.Item1;

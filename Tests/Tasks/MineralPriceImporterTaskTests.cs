@@ -9,9 +9,9 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class GoodPriceImporterTaskTests
+    public class MineralPriceImporterTaskTests
     {
-        private GoodPriceImporterTask task;
+        private MineralPriceImporterTask task;
 
         private Context context;
 
@@ -25,7 +25,7 @@
                                                         new RomanToArabicConvertor()
                 );
 
-            this.task = new GoodPriceImporterTask(this.context, convertor);
+            this.task = new MineralPriceImporterTask(this.context, convertor);
         }
 
         [TestMethod]

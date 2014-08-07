@@ -50,10 +50,10 @@
     <Compile Include="DependencyInjection\NinjectConfigurationModule.cs" />
     <Compile Include="Tasks\EmptyLineProcessingTask.cs" />
     <Compile Include="Tasks\ErrorMessageTask.cs" />
-    <Compile Include="Tasks\GoodPriceResponderTask.cs" />
-    <Compile Include="Tasks\GoodPriceImporterTask.cs" />
+    <Compile Include="Tasks\MineralPriceQuestionAnswererTask.cs" />
+    <Compile Include="Tasks\MineralPriceImporterTask.cs" />
     <Compile Include="Tasks\TaskFactory.cs" />
-    <Compile Include="Tasks\AlienNumberConversionResponderTask.cs" />
+    <Compile Include="Tasks\AlienNumberQuestionAnswererTask.cs" />
     <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Tasks\AlienNumberImporterTask.cs" />
     <Compile Include="Utils\LinqExtensions.cs" />

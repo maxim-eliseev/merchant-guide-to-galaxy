@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
 
-    using MerchantGuideToGalaxy;
     using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Tasks;
@@ -11,9 +10,9 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class GoodPriceResponderTaskTests
+    public class MineralPriceQuestionAnswererTaskTests
     {
-        private GoodPriceResponderTask task;
+        private MineralPriceQuestionAnswererTask task;
 
         private Context context;
 
@@ -27,7 +26,7 @@
                                             new RomanToArabicConvertor()
             );
 
-            this.task = new GoodPriceResponderTask(this.context, convertor);
+            this.task = new MineralPriceQuestionAnswererTask(this.context, convertor);
         }
 
 

@@ -10,12 +10,12 @@
     using MerchantGuideToGalaxy.Utils;
 
     /// <summary>
-    /// Processes lines which ask questions to calculate price of a specific amount of goods (set by an alien number)
+    /// Processes lines which ask questions to calculate price of a specific amount of a mineral (set by an alien number)
     /// </summary>
     /// <example>
     ///  how many Credits is glob prok Silver ?
     /// </example>
-    public class GoodPriceQuestionAnswererTask : ITask
+    public class MineralPriceQuestionAnswererTask : ITask
     {
         private const string MatchingPattern = @"how many Credits is ([\w\s]+) ?";
         //// [\w\s]+ is one or more word characters OR whitespaces. This is done to exclude "?" from matching.
@@ -25,7 +25,7 @@
 
         private readonly AlienToArabicConvertor alienToArabicConvertor;
 
-        public GoodPriceQuestionAnswererTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
+        public MineralPriceQuestionAnswererTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
             this.alienToArabicConvertor = alienToArabicConvertor;
