@@ -10,6 +10,10 @@
 
     public class GoodPriceResponderTask : ITask
     {
+        private const string MatchingPattern = @"how many Credits is ([\w\s]+) ?";
+        //// [\w\s]+ is one or more word characters OR whitespaces. This is done to exclude "?" from matching.
+        //// () indicates a capturing group
+
         private readonly Context context;
 
         private readonly AlienToArabicConvertor alienToArabicConvertor;
@@ -20,17 +24,24 @@
             alienToArabicConvertor = new AlienToArabicConvertor(context);
         }
 
+        public bool CanRun(string inputLine)
+        {
+            if (!inputLine.IsQuestion())
+            {
+                return false;
+            }
+
+            return inputLine.IsMatch(MatchingPattern);
+        }
+
         ////  how many Credits is glob prok Silver ?
         public void Run(string inputLine)
         {
-            var preparedInputline = Regex.Replace(inputLine, LineParsingUtility.GoodsPriceQuestionStart, string.Empty, RegexOptions.IgnoreCase);
-            preparedInputline = preparedInputline.Replace("?", string.Empty);
-            preparedInputline = preparedInputline.Trim();
-            var alienNumberWithGoodsNameString = preparedInputline;
+            var goodsNameAndAmountAsString = inputLine.MatchOneGroup(MatchingPattern);
+            var goodsNameAndAmount = LineParsingUtility.Split(goodsNameAndAmountAsString);
 
-            string[] alienNumberWithGoodsName = alienNumberWithGoodsNameString.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-            var goodsName = alienNumberWithGoodsName.Last();
-            var alienNumber = alienNumberWithGoodsName.WithoutLast();
+            var goodsName = goodsNameAndAmount.Last();
+            var alienNumber = goodsNameAndAmount.WithoutLast();
 
             if (!context.GoodsPricesPerUnit.ContainsKey(goodsName))
             {

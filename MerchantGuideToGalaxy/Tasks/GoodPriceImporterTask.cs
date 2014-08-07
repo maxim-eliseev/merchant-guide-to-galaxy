@@ -1,15 +1,18 @@
-﻿using System;
-
-namespace MerchantGuideToGalaxy.Tasks
+﻿namespace MerchantGuideToGalaxy.Tasks
 {
-    using System.Collections;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using MerchantGuideToGalaxy.Converters;
+    using MerchantGuideToGalaxy.Utils;
 
     public class GoodPriceImporterTask : ITask
     {
+        private const string MatchingPattern = @"(.+) is (\w+) Credits";
+        // (.+) is one or more any characters (including whitespace)
+        // (\w+) is one or more any characters (no whitespaces - just one word)
+
         private readonly Context context;
 
         public GoodPriceImporterTask(Context context)
@@ -17,41 +20,44 @@ namespace MerchantGuideToGalaxy.Tasks
             this.context = context;
         }
 
+        public bool CanRun(string inputLine)
+        {
+            if (inputLine.IsQuestion())
+            {
+                return false;
+            }
+
+            return inputLine.IsMatch(MatchingPattern);
+        }
+
         ////  glob glob Silver is 34 Credits
         public void Run(string inputLine)
         {
-           var words = inputLine.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-
-            var lastWordIndex = words.Count() - 1;
-
-            if (words[lastWordIndex] != "Credits")
+            var extractedData = inputLine.MatchTwoGroups(MatchingPattern);
+            if (extractedData == null)
             {
-                throw new ArgumentException("Wrong format:" + inputLine);
+                throw new ArgumentException("Input line cannot be parsed by GoodPriceImporterTask:" + inputLine);
             }
 
-            if (words[lastWordIndex - 2] != "is")
-            {
-                throw new ArgumentException("Wrong format:" + inputLine);
-            }
+            var goodsNameAndAmountAsString = extractedData.Item1;
+            string totalPriceAsString = extractedData.Item2;
 
-            string totalPriceAsString = words[lastWordIndex - 1];
             decimal totalPriceAsNumber;
             if (!decimal.TryParse(totalPriceAsString, out totalPriceAsNumber))
             {
                 throw new ArgumentException("Price is not a number:" + totalPriceAsNumber);
             }
 
-            string goodName = words[lastWordIndex - 3]; // Just before "is"
+            var goodsNameAndAmount = LineParsingUtility.Split(goodsNameAndAmountAsString); // "glob glob Silver"
 
-            IEnumerable<string> alienNumber = words.Take(words.Count() - 4); // Everything before good name is an alien number (glob glob tegj ...)
-            
+            IEnumerable<string> goodsAmountAsAlienNumber = goodsNameAndAmount.WithoutLast(); // "glob glob"
+            string goodsName = goodsNameAndAmount.Last(); // "Silver"
 
-            var arabicNumber = new AlienToArabicConvertor(context).Convert(alienNumber);
-            int numberOfUnits = arabicNumber;
+            var goodsAmount = new AlienToArabicConvertor(context).Convert(goodsAmountAsAlienNumber);
 
-            var pricePerUnit = totalPriceAsNumber / numberOfUnits;
+            var pricePerUnit = totalPriceAsNumber / goodsAmount;
 
-            context.GoodsPricesPerUnit[goodName] = pricePerUnit;
+            context.GoodsPricesPerUnit[goodsName] = pricePerUnit;
         }
     }
 }
