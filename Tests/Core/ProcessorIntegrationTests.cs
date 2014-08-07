@@ -15,7 +15,7 @@
             // Arrange
 
             // Act
-            var results = new Processor(new string[0] { }).Process();
+            var results = new Processor().Process(new string[0] { });
 
             // Assert
             Assert.IsTrue(results.Single().Contains("empty"));
@@ -26,7 +26,7 @@
         {
             // Arrange
             // Act
-            var results = new Processor(new[] { "glob is I" }).Process();
+            var results = new Processor().Process(new[] { "glob is I" });
 
             // Assert
             Assert.IsTrue(results.Any(line => line.Contains("questions")));
@@ -37,14 +37,14 @@
         {
             // Arrange
             // Act
-            var results = new Processor(new[]
+            var results = new Processor().Process(new[]
                                                       {
                                                           "glob is I",
                                                           "prok is V",
                                                           "pish is X",
                                                           "tegj is L",
                                                           "how much is pish tegj glob glob ?"
-                                                      }).Process();
+                                                      });
 
             // Assert
             Assert.IsTrue(results.Single() == "pish tegj glob glob is 42");
@@ -55,13 +55,13 @@
         {
             // Arrange
             // Act
-            var results = new Processor(new[]
+            var results = new Processor().Process(new[]
                                                       {
                                                           "glob is I",
                                                           "prok is V",
                                                           "glob glob Silver is 34 Credits",
                                                           "how many Credits is glob prok Silver ?"                                                          
-                                                      }).Process();
+                                                      });
 
             // Assert
             Assert.IsTrue(results.Single() == "glob prok Silver is 68 Credits");
@@ -72,10 +72,10 @@
         {
             // Arrange
             // Act
-            var results = new Processor(new[]
+            var results = new Processor().Process(new[]
                                                       {
                                                           "how much wood could a woodchuck chuck if a woodchuck could chuck wood ?"
-                                                      }).Process();
+                                                      });
 
             // Assert
             Assert.IsTrue(results.Single() == "I have no idea what you are talking about");
@@ -86,11 +86,11 @@
         {
             // Arrange
             // Act
-            var results = new Processor(new[]
+            var results = new Processor().Process(new[]
                                                       {
                                                           "glob is I",
                                                           "how many Credits is glob glob UNKNOWN ?"                                                          
-                                                      }).Process();
+                                                      });
 
             // Assert
             Assert.IsTrue(results.Count() == 2);

@@ -9,39 +9,38 @@
 
     public class Processor
     {
-        private readonly IEnumerable<string> input;
-
         private readonly Context context;
 
         private readonly TaskFactory taskFactory;
 
-        public Processor(IEnumerable<string> input) :
-            this(input, new Context())
+        public Processor() :
+            this(new Context())
         {
         }
 
-        public Processor(IEnumerable<string> input, Context context)
+        public Processor(Context context)
         {
-            this.input = input;
             this.context = context;
             this.taskFactory = new TaskFactory(context);
         }
 
-        public IEnumerable<string> Process()
+        public IEnumerable<string> Process(IEnumerable<string> input)
         {
-            if (!this.input.Any())
+            this.context.Clear();
+
+            if (!input.Any())
             {
                 this.context.Output.Add("Input is empty");
                 return this.context.Output;
             }
 
-            if (!this.input.Any(LineParsingUtility.IsQuestion))
+            if (!input.Any(LineParsingUtility.IsQuestion))
             {
                 this.context.Output.Add("Input has no questions");
                 return this.context.Output;
             }
 
-            foreach (var inputLine in this.input)
+            foreach (var inputLine in input)
             {
                 this.ProcessLine(inputLine);
             }

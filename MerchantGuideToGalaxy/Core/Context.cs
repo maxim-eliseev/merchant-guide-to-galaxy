@@ -9,5 +9,12 @@
         public readonly IDictionary<string, decimal> GoodsPricesPerUnit = new Dictionary<string, decimal>();
 
         public readonly IList<string> Output = new List<string>();
+
+        public void Clear()
+        {
+            AlienToRomanNumberMap.Clear();
+            GoodsPricesPerUnit.Clear();
+            Output.Clear();
+        }
     }
 }

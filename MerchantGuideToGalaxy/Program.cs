@@ -20,7 +20,7 @@
             else
             {
                 var input = File.ReadAllLines(InputFileName);
-                var output = new Processor(input).Process();
+                var output = new Processor().Process(input);
 
                 File.WriteAllLines(OutputFileName, output);
 
