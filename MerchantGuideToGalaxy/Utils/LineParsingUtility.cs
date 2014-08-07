@@ -103,5 +103,10 @@
         {
             return s.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
         }
+
+        public static int WordsCount(this string s)
+        {
+            return Split(s).Count;
+        }
     }
 }

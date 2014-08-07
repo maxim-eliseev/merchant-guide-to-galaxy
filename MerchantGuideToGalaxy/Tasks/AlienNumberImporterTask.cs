@@ -2,10 +2,16 @@
 {
     using MerchantGuideToGalaxy.Utils;
 
+    /// <summary>
+    /// Processes lines which import alien symbols into system.
+    /// </summary>
+    /// <example>
+    ///  glob is I            
+    /// </example>
     public class AlienNumberImporterTask : ITask
     {
-        private const string MatchingPattern = @"(\w+) is (\w+)";
-        //// \w+ is one or more word characters. Only one word is matched (since whitespaces are not allowed)
+        private const string MatchingPattern = @"(.+) is (.+)";
+        //// .+ is one or more characters. Mutpliple words may be matched (since whitespaces are allowed)
         //// () indicates a capturing group
 
         private readonly Context context;
@@ -22,10 +28,22 @@
                 return false;
             }
 
-            return inputLine.IsMatch(MatchingPattern);
-        }
+            var extractedData = inputLine.MatchTwoGroups(MatchingPattern);
+            if (extractedData == null)
+            {
+                return false;
+            }
 
-        ////  glob is I            
+            // There are two groups: before "is" and after "is" (see MatchingPattern)
+            // Both must consist of exactly one word
+            if (extractedData.Item1.WordsCount() == 1 && extractedData.Item2.WordsCount() == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        
         public void Run(string inputLine)
         {
             var extractedData = inputLine.MatchTwoGroups(MatchingPattern);

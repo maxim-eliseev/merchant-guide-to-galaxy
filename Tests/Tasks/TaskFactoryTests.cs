@@ -37,7 +37,7 @@
         [TestMethod]
         public void Given_whitespace_line_when_CreateTask_is_called_should_create_appropriate_task()
         {
-            AssertTaskType("    ", typeof(NoOperationTask));
+            AssertTaskType("    ", typeof(EmptyLineProcessingTask));
         }
 
         private static void AssertTaskType(string line, Type expectedType)

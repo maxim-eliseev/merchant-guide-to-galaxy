@@ -1,59 +1,38 @@
 ﻿namespace MerchantGuideToGalaxy.Tasks
 {
-    using System;
-
-    using MerchantGuideToGalaxy.Utils;
+    using System.Collections.Generic;
 
     public class TaskFactory
     {
         private readonly Context context;
 
+        private readonly IEnumerable<ITask> tasks;
+
         public TaskFactory(Context context)
         {
             this.context = context;
+
+            tasks = new List<ITask>()
+                        {
+                            new EmptyLineProcessingTask(),      
+                            new AlienNumberImporterTask(context),
+                            new GoodPriceImporterTask(context),
+                            new AlienNumberConversionResponderTask(context),
+                            new GoodPriceResponderTask(context)
+                        };
         }
 
         public ITask CreateTask(string inputLine)
         {
-            //// Please note that order of clauses below is important.
-
-            //// how much is pish tegj glob glob ?
-            if (
-                inputLine.StartsWith(LineParsingUtility.AlienNumberQuestionStart, StringComparison.CurrentCultureIgnoreCase) && 
-                LineParsingUtility.IsQuestion(inputLine))
+            foreach (var task in tasks)
             {
-                return new AlienNumberConversionResponderTask(this.context);
-            }
-
-            //// how many Credits is glob prok Silver ?
-            if (
-                inputLine.StartsWith(LineParsingUtility.GoodsPriceQuestionStart, StringComparison.CurrentCultureIgnoreCase) &&
-                LineParsingUtility.IsQuestion(inputLine))
-            {
-                return new GoodPriceResponderTask(this.context);
-            }
-
-            //// glob glob Silver is 34 Credits
-            if (
-                inputLine.Contains("Credits", StringComparison.CurrentCultureIgnoreCase) &&
-                inputLine.Contains("is", StringComparison.CurrentCultureIgnoreCase)
-                )
-            {
-                return new GoodPriceImporterTask(this.context);
-            }
-
-            ////  glob is I            
-            if (inputLine.Contains("is", StringComparison.CurrentCultureIgnoreCase))
-            {
-                return new AlienNumberImporterTask(this.context);
-            }
-
-            if (string.IsNullOrWhiteSpace(inputLine))
-            {
-                return new NoOperationTask();
+                if (task.CanRun(inputLine))
+                {
+                    return task;
+                }
             }
 
             return new ErrorMessageTask(context);
-        }
+        }        
     }
 }
