@@ -1,4 +1,4 @@
-﻿namespace MerchantGuideToGalaxy
+﻿namespace MerchantGuideToGalaxy.Core
 {
     using System.Collections.Generic;
 

@@ -1,5 +1,6 @@
 ﻿namespace MerchantGuideToGalaxy.Tasks
 {
+    using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Utils;
 
     /// <summary>

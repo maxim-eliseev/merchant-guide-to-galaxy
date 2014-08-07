@@ -54,7 +54,7 @@
     <Compile Include="Converters\AlienToArabicConvertorTests.cs" />
     <Compile Include="Converters\RomanToArabicConvertorTests.cs" />
     <Compile Include="Utils\LineParsingUtilityTests.cs" />
-    <Compile Include="ProcessorIntegrationTests.cs" />
+    <Compile Include="Core\ProcessorIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\GoodPriceResponderTaskTests.cs" />
     <Compile Include="Tasks\GoodPriceImporterTaskTests.cs" />

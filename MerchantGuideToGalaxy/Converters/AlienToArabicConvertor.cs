@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using MerchantGuideToGalaxy.Core;
+
     public class AlienToArabicConvertor
     {
         private readonly AlienToRomanConvertor alienToRomanConvertor;

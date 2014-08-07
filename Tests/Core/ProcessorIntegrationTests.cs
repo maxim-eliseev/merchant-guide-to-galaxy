@@ -1,8 +1,8 @@
-﻿namespace MerchantGuideToGalaxy.Tests
+﻿namespace MerchantGuideToGalaxy.Tests.Core
 {
     using System.Linq;
 
-    using MerchantGuideToGalaxy;
+    using MerchantGuideToGalaxy.Core;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

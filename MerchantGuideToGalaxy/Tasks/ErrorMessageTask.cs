@@ -1,5 +1,7 @@
 ﻿namespace MerchantGuideToGalaxy.Tasks
 {
+    using MerchantGuideToGalaxy.Core;
+
     /// <summary>
     /// Processes any line which is not processed by other tasks
     /// </summary>

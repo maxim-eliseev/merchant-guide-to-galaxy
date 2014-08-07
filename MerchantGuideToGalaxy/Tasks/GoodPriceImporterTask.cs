@@ -5,6 +5,7 @@
     using System.Linq;
 
     using MerchantGuideToGalaxy.Converters;
+    using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Utils;
 
     /// <summary>

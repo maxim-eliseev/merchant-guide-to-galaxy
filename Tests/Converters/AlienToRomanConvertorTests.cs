@@ -3,6 +3,7 @@
     using System;
 
     using MerchantGuideToGalaxy.Converters;
+    using MerchantGuideToGalaxy.Core;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

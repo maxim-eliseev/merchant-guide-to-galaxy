@@ -6,6 +6,7 @@ namespace MerchantGuideToGalaxy.Tasks
     using System.Text.RegularExpressions;
 
     using MerchantGuideToGalaxy.Converters;
+    using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Utils;
 
     /// <summary>

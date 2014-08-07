@@ -3,6 +3,7 @@
     using System;
 
     using MerchantGuideToGalaxy;
+    using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Tasks;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;

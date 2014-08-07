@@ -4,6 +4,8 @@
     using System.IO;
     using System.Linq;
 
+    using MerchantGuideToGalaxy.Core;
+
     public class Program
     {
         private const string InputFileName = "input.txt";

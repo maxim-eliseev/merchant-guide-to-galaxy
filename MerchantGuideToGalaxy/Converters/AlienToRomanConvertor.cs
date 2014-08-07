@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using MerchantGuideToGalaxy.Core;
+
     public class AlienToRomanConvertor
     {
         private readonly Context context;
