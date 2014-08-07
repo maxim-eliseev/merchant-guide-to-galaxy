@@ -17,14 +17,17 @@
     public class GoodPriceImporterTask : ITask
     {
         private const string MatchingPattern = @"(.+) is (\w+) Credits";
-        // (.+) is one or more any characters (including whitespace)
-        // (\w+) is one or more any characters (no whitespaces - just one word)
+        //// (.+) is one or more any characters (including whitespace)
+        //// (\w+) is one or more any characters (no whitespaces - just one word)
 
         private readonly Context context;
 
-        public GoodPriceImporterTask(Context context)
+        private AlienToArabicConvertor alienToArabicConvertor;
+
+        public GoodPriceImporterTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
+            this.alienToArabicConvertor = alienToArabicConvertor;
         }
 
         public bool CanRun(string inputLine)
@@ -59,7 +62,7 @@
             IEnumerable<string> goodsAmountAsAlienNumber = goodsNameAndAmount.WithoutLast(); // "glob glob"
             string goodsName = goodsNameAndAmount.Last(); // "Silver"
 
-            var goodsAmount = new AlienToArabicConvertor(context).Convert(goodsAmountAsAlienNumber);
+            var goodsAmount = this.alienToArabicConvertor.Convert(goodsAmountAsAlienNumber);
 
             var pricePerUnit = totalPriceAsNumber / goodsAmount;
 

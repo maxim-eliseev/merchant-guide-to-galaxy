@@ -12,22 +12,28 @@
     {
         private Context context;
 
+        private AlienToArabicConvertor convertor;
+
         [TestInitialize]
         public void Init()
         {
             context = new Context();
+
+            convertor = new AlienToArabicConvertor(
+                                            new AlienToRomanConvertor(context),
+                                            new RomanToArabicConvertor()
+            );
         }
 
         [TestMethod]
         public void Given_known_alien_symbols_should_convert_correctly()
         {
             // Arrange
-            var convertor = new AlienToArabicConvertor(context);
             this.AddAlienSymbolToContext("one", "I");
             this.AddAlienSymbolToContext("four", "V");
 
             // Act
-            var arabicNumber = convertor.Convert(new string[] { "one" , "four" }); // IV = 4
+            var arabicNumber = convertor.Convert(new string[] { "one", "four" }); // IV = 4
 
             // Assert
             Assert.AreEqual(4, arabicNumber);

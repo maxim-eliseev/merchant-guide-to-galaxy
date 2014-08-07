@@ -3,19 +3,31 @@
     using System.Linq;
 
     using MerchantGuideToGalaxy.Core;
+    using MerchantGuideToGalaxy.DependencyInjection;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    using Ninject;
 
     [TestClass]
     public class ProcessorIntegrationTests
     {
+        private Processor processor;
+
+        [TestInitialize]
+        public void Init()
+        {
+            IKernel kernel = new StandardKernel(new NinjectConfigurationModule());
+            this.processor = kernel.Get<Processor>();                        
+        }
+
         [TestMethod]
         public void Given_empty_input_when_Run_is_called_should_write_warning_to_output()
         {
             // Arrange
 
             // Act
-            var results = new Processor().Process(new string[0] { });
+            var results = this.processor.Process(new string[0] { });
 
             // Assert
             Assert.IsTrue(results.Single().Contains("empty"));
@@ -26,7 +38,7 @@
         {
             // Arrange
             // Act
-            var results = new Processor().Process(new[] { "glob is I" });
+            var results = this.processor.Process(new[] { "glob is I" });
 
             // Assert
             Assert.IsTrue(results.Any(line => line.Contains("questions")));
@@ -37,7 +49,7 @@
         {
             // Arrange
             // Act
-            var results = new Processor().Process(new[]
+            var results = this.processor.Process(new[]
                                                       {
                                                           "glob is I",
                                                           "prok is V",
@@ -55,7 +67,7 @@
         {
             // Arrange
             // Act
-            var results = new Processor().Process(new[]
+            var results = this.processor.Process(new[]
                                                       {
                                                           "glob is I",
                                                           "prok is V",
@@ -72,7 +84,7 @@
         {
             // Arrange
             // Act
-            var results = new Processor().Process(new[]
+            var results = this.processor.Process(new[]
                                                       {
                                                           "how much wood could a woodchuck chuck if a woodchuck could chuck wood ?"
                                                       });
@@ -86,7 +98,7 @@
         {
             // Arrange
             // Act
-            var results = new Processor().Process(new[]
+            var results = this.processor.Process(new[]
                                                       {
                                                           "glob is I",
                                                           "how many Credits is glob glob UNKNOWN ?"                                                          
@@ -94,6 +106,7 @@
 
             // Assert
             Assert.IsTrue(results.Count() == 2);
-        }     
+        }
+
     }
 }

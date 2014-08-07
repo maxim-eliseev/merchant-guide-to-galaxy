@@ -13,15 +13,10 @@
 
         private readonly TaskFactory taskFactory;
 
-        public Processor() :
-            this(new Context())
-        {
-        }
-
-        public Processor(Context context)
+        public Processor(Context context, TaskFactory taskFactory)
         {
             this.context = context;
-            this.taskFactory = new TaskFactory(context);
+            this.taskFactory = taskFactory;
         }
 
         public IEnumerable<string> Process(IEnumerable<string> input)

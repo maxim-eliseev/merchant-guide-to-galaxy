@@ -2,15 +2,25 @@
 {
     using System;
 
-    using MerchantGuideToGalaxy;
-    using MerchantGuideToGalaxy.Core;
+    using MerchantGuideToGalaxy.DependencyInjection;
     using MerchantGuideToGalaxy.Tasks;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    using Ninject;
+
     [TestClass]
-    public class TaskFactoryTests
+    public class TaskFactoryIntegrationTests
     {
+        private TaskFactory taskFactory;
+
+        [TestInitialize]
+        public void Init()
+        {
+            IKernel kernel = new StandardKernel(new NinjectConfigurationModule());
+            this.taskFactory = kernel.Get<TaskFactory>();
+        }
+
         [TestMethod]
         public void Given_alien_number_import_line_when_CreateTask_is_called_should_create_appropriate_task()
         {
@@ -41,14 +51,12 @@
             AssertTaskType("    ", typeof(EmptyLineProcessingTask));
         }
 
-        private static void AssertTaskType(string line, Type expectedType)
+        private void AssertTaskType(string line, Type expectedType)
         {
             // Arrange
-            var context = new Context();
-            var taskFactory = new TaskFactory(context);
 
             // Act
-            var task = taskFactory.CreateTask(line);
+            var task = this.taskFactory.CreateTask(line);
 
             // Assert            
             Assert.IsInstanceOfType(task, expectedType);

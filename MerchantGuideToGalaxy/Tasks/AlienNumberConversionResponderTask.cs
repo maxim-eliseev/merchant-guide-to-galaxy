@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace MerchantGuideToGalaxy.Tasks
 {
+    using System.Diagnostics.CodeAnalysis;
     using System.Text.RegularExpressions;
 
     using MerchantGuideToGalaxy.Converters;
@@ -15,6 +16,7 @@ namespace MerchantGuideToGalaxy.Tasks
     /// <example>
     /// how much is pish tegj glob glob ?        
     /// </example>
+    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
     public class AlienNumberConversionResponderTask : ITask
     {
         private const string MatchingPattern = @"how much is ([\w\s]+)?";
@@ -25,10 +27,10 @@ namespace MerchantGuideToGalaxy.Tasks
 
         private readonly AlienToArabicConvertor alienToArabicConvertor;
         
-        public AlienNumberConversionResponderTask(Context context)
+        public AlienNumberConversionResponderTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
-            alienToArabicConvertor = new AlienToArabicConvertor(context);
+            this.alienToArabicConvertor = alienToArabicConvertor;
         }
 
         public bool CanRun(string inputLine)

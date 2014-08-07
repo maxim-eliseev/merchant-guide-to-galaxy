@@ -1,27 +1,16 @@
 ﻿namespace MerchantGuideToGalaxy.Tasks
 {
+    using System;
     using System.Collections.Generic;
-
-    using MerchantGuideToGalaxy.Core;
 
     public class TaskFactory
     {
-        private readonly Context context;
-
         private readonly IEnumerable<ITask> tasks;
 
-        public TaskFactory(Context context)
+        // The list of tasks is configured in NinjectConfigurationModule
+        public TaskFactory(IEnumerable<ITask> tasks)
         {
-            this.context = context;
-
-            tasks = new List<ITask>()
-                        {
-                            new EmptyLineProcessingTask(),      
-                            new AlienNumberImporterTask(context),
-                            new GoodPriceImporterTask(context),
-                            new AlienNumberConversionResponderTask(context),
-                            new GoodPriceResponderTask(context)
-                        };
+            this.tasks = tasks;
         }
 
         public ITask CreateTask(string inputLine)
@@ -34,7 +23,7 @@
                 }
             }
 
-            return new ErrorMessageTask(context);
+            throw new InvalidOperationException("No suitable task found. Input line:" + inputLine);
         }        
     }
 }

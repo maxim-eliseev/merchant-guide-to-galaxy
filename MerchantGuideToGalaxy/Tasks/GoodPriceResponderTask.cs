@@ -25,10 +25,10 @@
 
         private readonly AlienToArabicConvertor alienToArabicConvertor;
 
-        public GoodPriceResponderTask(Context context)
+        public GoodPriceResponderTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
-            alienToArabicConvertor = new AlienToArabicConvertor(context);
+            this.alienToArabicConvertor = alienToArabicConvertor;
         }
 
         public bool CanRun(string inputLine)

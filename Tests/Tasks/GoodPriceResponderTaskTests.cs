@@ -4,6 +4,7 @@
     using System.Linq;
 
     using MerchantGuideToGalaxy;
+    using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Tasks;
 
@@ -12,17 +13,33 @@
     [TestClass]
     public class GoodPriceResponderTaskTests
     {
+        private GoodPriceResponderTask task;
+
+        private Context context;
+
+        [TestInitialize]
+        public void Init()
+        {
+            this.context = new Context();
+
+            var convertor = new AlienToArabicConvertor(
+                                            new AlienToRomanConvertor(context),
+                                            new RomanToArabicConvertor()
+            );
+
+            this.task = new GoodPriceResponderTask(this.context, convertor);
+        }
+
+
         [TestMethod]
         public void Given_correct_line_when_Run_is_called_should_write_correct_response_to_output()
         {
             // Arrange
-            var context = new Context();
             context.AlienToRomanNumberMap.Add("glob", "I");
             context.AlienToRomanNumberMap.Add("prok", "V");
             context.GoodsPricesPerUnit.Add("Silver", 17);
 
             var line = "how many Credits is glob prok Silver ?";                        
-            var task = new GoodPriceResponderTask(context);
 
             // Act
             task.Run(line);
@@ -38,49 +55,39 @@
         public void Given_line_with_unknown_goods_name_when_Run_is_called_should_throw_error()
         {
             // Arrange
-            var context = new Context();
             context.AlienToRomanNumberMap.Add("glob", "I");
             context.AlienToRomanNumberMap.Add("prok", "V");
 
             var line = "how many Credits is glob prok UNKNOWN ?";
 
-            var task = new GoodPriceResponderTask(context);
+            // Act
+            task.Run(line);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Given_line_with_first_unknown_alien_symbol_when_Run_is_called_should_throw_error()
+        {
+            // Arrange
+            context.AlienToRomanNumberMap.Add("glob", "I");
+
+            var line = "how many Credits is UNKNOWN prok Silver ?";
 
             // Act
             task.Run(line);
         }
-        
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void Given_line_with_first_unknown_alien_symbol_when_Run_is_called_should_throw_error()
-        //{
-        //    // Arrange
-        //    var context = new Context();
-        //    context.AlienToRomanNumberMap.Add("glob", "I");
 
-        //    var line = "UNKNOWN glob Silver is 34 Credits";
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Given_line_with_last_unknown_alien_symbol_when_Run_is_called_should_throw_error()
+        {
+            // Arrange
+            context.AlienToRomanNumberMap.Add("glob", "I");
 
-        //    var task = new GoodPriceImporterTask(context);
+            var line = "how many Credits is prok UNKNOWN Silver ?";
 
-        //    // Act
-        //    task.Run(line);
-        //}
-
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void Given_line_with_last_unknown_alien_symbol_when_Run_is_called_should_throw_error()
-        //{
-        //    // Arrange
-        //    var context = new Context();
-        //    context.AlienToRomanNumberMap.Add("glob", "I");
-
-        //    var line = "glob UNKNOWN Silver is 34 Credits";
-
-        //    var task = new GoodPriceImporterTask(context);
-
-        //    // Act
-        //    task.Run(line);
-        // }
-
+            // Act
+            task.Run(line);
+        }      
     }
 }

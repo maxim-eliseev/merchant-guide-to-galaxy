@@ -16,12 +16,6 @@
             this.romanToArabicConvertor = romanToArabicConvertor;
         }
 
-        public AlienToArabicConvertor(Context context) : this(
-            new AlienToRomanConvertor(context), 
-            new RomanToArabicConvertor())
-        {            
-        }
-
         public int Convert(IEnumerable<string> alienSymbols)
         {
             var romanNumber = alienToRomanConvertor.Convert(alienSymbols);
