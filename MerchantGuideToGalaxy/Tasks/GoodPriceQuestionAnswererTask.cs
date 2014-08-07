@@ -15,7 +15,7 @@
     /// <example>
     ///  how many Credits is glob prok Silver ?
     /// </example>
-    public class GoodPriceResponderTask : ITask
+    public class GoodPriceQuestionAnswererTask : ITask
     {
         private const string MatchingPattern = @"how many Credits is ([\w\s]+) ?";
         //// [\w\s]+ is one or more word characters OR whitespaces. This is done to exclude "?" from matching.
@@ -25,7 +25,7 @@
 
         private readonly AlienToArabicConvertor alienToArabicConvertor;
 
-        public GoodPriceResponderTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
+        public GoodPriceQuestionAnswererTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
             this.alienToArabicConvertor = alienToArabicConvertor;

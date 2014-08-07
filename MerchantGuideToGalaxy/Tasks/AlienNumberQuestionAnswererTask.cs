@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MerchantGuideToGalaxy.Tasks
+﻿namespace MerchantGuideToGalaxy.Tasks
 {
     using System.Diagnostics.CodeAnalysis;
-    using System.Text.RegularExpressions;
 
     using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Core;
@@ -16,8 +12,7 @@ namespace MerchantGuideToGalaxy.Tasks
     /// <example>
     /// how much is pish tegj glob glob ?        
     /// </example>
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-    public class AlienNumberConversionResponderTask : ITask
+    public class AlienNumberQuestionAnswererTask : ITask
     {
         private const string MatchingPattern = @"how much is ([\w\s]+)?";
         //// [\w\s]+ is one or more word characters OR whitespaces. This is done to exclude "?" from matching.
@@ -27,7 +22,7 @@ namespace MerchantGuideToGalaxy.Tasks
 
         private readonly AlienToArabicConvertor alienToArabicConvertor;
         
-        public AlienNumberConversionResponderTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
+        public AlienNumberQuestionAnswererTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
             this.alienToArabicConvertor = alienToArabicConvertor;
