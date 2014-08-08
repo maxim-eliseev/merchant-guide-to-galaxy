@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6B825A2-6BFC-4EE6-9568-28B6EBFA803B}</ProjectGuid>
+    <ProjectGuid>{37DCF23A-1EE8-4582-A923-CBD4FB5C6B7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MerchantGuideToGalaxy</RootNamespace>
-    <AssemblyName>MerchantGuideToGalaxy</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>ConsoleApplicationTests</RootNamespace>
+    <AssemblyName>ConsoleApplicationTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,12 +29,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1408.0717\lib\net40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,31 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Context.cs" />
-    <Compile Include="Converters\AlienToRomanConvertor.cs" />
-    <Compile Include="Converters\AlienToArabicConvertor.cs" />
-    <Compile Include="DependencyInjection\NinjectConfigurationModule.cs" />
-    <Compile Include="Tasks\EmptyLineProcessingTask.cs" />
-    <Compile Include="Tasks\ErrorMessageTask.cs" />
-    <Compile Include="Tasks\MineralPriceQuestionAnswererTask.cs" />
-    <Compile Include="Tasks\MineralPriceImporterTask.cs" />
-    <Compile Include="Tasks\TaskFactory.cs" />
-    <Compile Include="Tasks\AlienNumberQuestionAnswererTask.cs" />
-    <Compile Include="Tasks\ITask.cs" />
-    <Compile Include="Tasks\AlienNumberImporterTask.cs" />
-    <Compile Include="Utils\LinqExtensions.cs" />
-    <Compile Include="Core\Processor.cs" />
+    <Compile Include="UiControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Converters\RomanToArabicConvertor.cs" />
-    <Compile Include="Utils\LineParsingUtility.cs" />
-    <Compile Include="Utils\ParsingException.cs" />
-    <Compile Include="Utils\StringExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleApplication\ConsoleApplication.csproj">
+      <Project>{5826DDCF-FF22-44DC-A446-43DA272C065E}</Project>
+      <Name>ConsoleApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MerchantGuideToGalaxy\Engine.csproj">
+      <Project>{B6B825A2-6BFC-4EE6-9568-28B6EBFA803B}</Project>
+      <Name>Engine</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Notes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

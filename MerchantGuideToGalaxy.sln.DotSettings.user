@@ -1,7 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=77062791E9954F2AB9137B21C7F1226F/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=77062791E9954F2AB9137B21C7F1226F/Name/@EntryValue">All tests from ProcessorTests.cs</s:String>
-	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=77062791E9954F2AB9137B21C7F1226F/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements /&gt;&lt;/Session&gt;</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=77062791E9954F2AB9137B21C7F1226F/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements&gt;&lt;UnitTestElement Provider="MSTest" Id="MsTest:ConsoleApplicationTests.UiControllerTests" type="MsTestTestClassElement" TypeName="ConsoleApplicationTests.UiControllerTests" Project="37DCF23A-1EE8-4582-A923-CBD4FB5C6B7E" /&gt;&lt;/Elements&gt;&lt;/Session&gt;</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=DCF81523EC26E140A52F232AEBEC5EB6/Text/@EntryValue">// Arrange&#xD;
 &#xD;
 // Act&#xD;

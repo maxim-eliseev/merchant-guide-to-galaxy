@@ -7,7 +7,7 @@
     {
         private readonly IEnumerable<ITask> tasks;
 
-        // The list of tasks is configured in NinjectConfigurationModule
+        // The list of tasks is configured in ProcessorConfigurationModule
         public TaskFactory(IEnumerable<ITask> tasks)
         {
             this.tasks = tasks;

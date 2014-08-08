@@ -7,7 +7,7 @@
     using MerchantGuideToGalaxy.Tasks;
     using MerchantGuideToGalaxy.Utils;
 
-    public class Processor
+    public class Processor : IProcessor
     {
         private readonly Context context;
 
@@ -21,17 +21,11 @@
 
         public IEnumerable<string> Process(IEnumerable<string> input)
         {
-            this.context.Clear(); // This is to ensure subsequent calls do not reuse context from previous calls
+            context.Output.Clear();
 
             if (!input.Any())
             {
                 this.context.Output.Add("Input is empty");
-                return this.context.Output;
-            }
-
-            if (!input.Any(LineParsingUtility.IsQuestion))
-            {
-                this.context.Output.Add("Input has no questions");
                 return this.context.Output;
             }
 

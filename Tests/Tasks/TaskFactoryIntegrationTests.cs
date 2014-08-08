@@ -17,7 +17,7 @@
         [TestInitialize]
         public void Init()
         {
-            IKernel kernel = new StandardKernel(new NinjectConfigurationModule());
+            IKernel kernel = new StandardKernel(new ProcessorConfigurationModule());
             this.taskFactory = kernel.Get<TaskFactory>();
         }
 

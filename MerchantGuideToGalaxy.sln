@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchantGuideToGalaxy", "MerchantGuideToGalaxy\MerchantGuideToGalaxy.csproj", "{B6B825A2-6BFC-4EE6-9568-28B6EBFA803B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "MerchantGuideToGalaxy\Engine.csproj", "{B6B825A2-6BFC-4EE6-9568-28B6EBFA803B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{41A39E55-4CFD-4475-8D9A-B0E0AD5A7649}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineTests", "Tests\EngineTests.csproj", "{41A39E55-4CFD-4475-8D9A-B0E0AD5A7649}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.csproj", "{5826DDCF-FF22-44DC-A446-43DA272C065E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationTests", "ConsoleApplicationTests\ConsoleApplicationTests.csproj", "{37DCF23A-1EE8-4582-A923-CBD4FB5C6B7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{5826DDCF-FF22-44DC-A446-43DA272C065E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5826DDCF-FF22-44DC-A446-43DA272C065E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5826DDCF-FF22-44DC-A446-43DA272C065E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37DCF23A-1EE8-4582-A923-CBD4FB5C6B7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37DCF23A-1EE8-4582-A923-CBD4FB5C6B7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37DCF23A-1EE8-4582-A923-CBD4FB5C6B7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37DCF23A-1EE8-4582-A923-CBD4FB5C6B7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

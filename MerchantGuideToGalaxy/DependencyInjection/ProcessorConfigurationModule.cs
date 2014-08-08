@@ -3,10 +3,11 @@
     using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Tasks;
 
-    public class NinjectConfigurationModule : Ninject.Modules.NinjectModule
+    public class ProcessorConfigurationModule : Ninject.Modules.NinjectModule
     {
         public override void Load()
         {
+            this.Bind<IProcessor>().To<Processor>();
             this.Bind<Context>().ToSelf().InSingletonScope(); // Context is sinlgeton because we want to reuse same instance in all the classes
 
             this.BindTasks();
