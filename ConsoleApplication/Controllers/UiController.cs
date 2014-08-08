@@ -1,4 +1,4 @@
-﻿namespace ConsoleApplication
+﻿namespace ConsoleApplication.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -27,7 +27,7 @@
 
         public void Run(string inputFileName)
         {
-            ProcessInputFile(inputFileName);
+            this.ProcessInputFile(inputFileName);
 
             this.WriteMessageToConsole("Enter your query below or type `exit` to exit");            
 
