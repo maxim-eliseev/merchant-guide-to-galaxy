@@ -2,13 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
 
     using ConsoleApplication.Wrappers;
 
     using MerchantGuideToGalaxy.Core;
 
+    /// <summary>
+    /// Reads data from an input file, outputs results and allows to run interactive queries
+    /// </summary>
     public class UiController : IUiController
     {
         private readonly IProcessor processor;
