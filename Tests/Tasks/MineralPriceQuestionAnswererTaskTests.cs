@@ -36,7 +36,7 @@
             // Arrange
             context.AlienToRomanNumberMap.Add("glob", "I");
             context.AlienToRomanNumberMap.Add("prok", "V");
-            context.GoodsPricesPerUnit.Add("Silver", 17);
+            context.MineralPricesPerUnit.Add("Silver", 17);
 
             var line = "how many Credits is glob prok Silver ?";                        
 
@@ -51,7 +51,7 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void Given_line_with_unknown_goods_name_when_Run_is_called_should_throw_error()
+        public void Given_line_with_unknown_mineral_name_when_Run_is_called_should_throw_error()
         {
             // Arrange
             context.AlienToRomanNumberMap.Add("glob", "I");

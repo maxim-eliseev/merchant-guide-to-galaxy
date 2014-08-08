@@ -10,7 +10,7 @@
     public static class LineParsingUtility
     {
         public const string AlienNumberQuestionStart = "How much is";
-        public const string GoodsPriceQuestionStart = "how many Credits is";
+        public const string mineralPriceQuestionStart = "how many Credits is";
 
         public static bool IsQuestion(this string line)
         {

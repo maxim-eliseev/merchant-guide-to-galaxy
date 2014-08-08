@@ -6,15 +6,15 @@
     {
         public readonly IDictionary<string, string> AlienToRomanNumberMap = new Dictionary<string, string>();
 
-        public readonly IDictionary<string, decimal> GoodsPricesPerUnit = new Dictionary<string, decimal>();
+        public readonly IDictionary<string, decimal> MineralPricesPerUnit = new Dictionary<string, decimal>();
 
         public readonly IList<string> Output = new List<string>();
 
         public void Clear()
         {
-            AlienToRomanNumberMap.Clear();
-            GoodsPricesPerUnit.Clear();
-            Output.Clear();
+            this.AlienToRomanNumberMap.Clear();
+            this.MineralPricesPerUnit.Clear();
+            this.Output.Clear();
         }
     }
 }

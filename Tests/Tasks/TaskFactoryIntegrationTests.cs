@@ -34,13 +34,13 @@
         }
 
         [TestMethod]
-        public void Given_good_price_import_line_when_CreateTask_is_called_should_create_appropriate_task()
+        public void Given_mineral_price_import_line_when_CreateTask_is_called_should_create_appropriate_task()
         {
             AssertTaskType("glob glob Silver is 34 Credits", typeof(MineralPriceImporterTask));
         }
 
         [TestMethod]
-        public void Given_good_price_question_line_when_CreateTask_is_called_should_create_appropriate_task()
+        public void Given_mineral_price_question_line_when_CreateTask_is_called_should_create_appropriate_task()
         {
             AssertTaskType("how many Credits is glob prok Silver ?", typeof(MineralPriceQuestionAnswererTask));
         }

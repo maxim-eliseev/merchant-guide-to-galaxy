@@ -29,20 +29,20 @@
         }
 
         [TestMethod]
-        public void Given_correct_line_when_Run_is_called_should_import_good_price_to_context()
+        public void Given_correct_line_when_Run_is_called_should_import_mineral_price_to_context()
         {
             // Arrange            
             context.AlienToRomanNumberMap.Add("glob", "I");
 
             var line = "glob glob Silver is 34 Credits";
-            var goodName = "Silver";
+            var mineralName = "Silver";
             var expectedPricePerUnit = 17; // glob is I. glob glob is II = 2. 34/2 = 17
             
             // Act
             task.Run(line);
 
             // Assert
-            var actualPricePerUnit = context.GoodsPricesPerUnit[goodName];
+            var actualPricePerUnit = context.MineralPricesPerUnit[mineralName];
             Assert.AreEqual(expectedPricePerUnit, actualPricePerUnit);
         }
 

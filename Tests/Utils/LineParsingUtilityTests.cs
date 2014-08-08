@@ -76,7 +76,7 @@
         }
 
         [TestMethod]
-        public void Given_good_price_import_string_when_MatchTwoGroups_called_should_parse_correctly()
+        public void Given_mineral_price_import_string_when_MatchTwoGroups_called_should_parse_correctly()
         {
             // Arrange
             string text = "glob glob Silver is 34 Credits";
@@ -89,11 +89,11 @@
             // Assert
             Assert.IsNotNull(results);
 
-            var alienNumberAndGoodsName = results.Item1;
-            Assert.AreEqual("glob glob Silver", alienNumberAndGoodsName);
+            var alienNumberAndmineralName = results.Item1;
+            Assert.AreEqual("glob glob Silver", alienNumberAndmineralName);
 
-            var goodsPrice = results.Item2;
-            Assert.AreEqual("34", goodsPrice);
+            var mineralPrice = results.Item2;
+            Assert.AreEqual("34", mineralPrice);
         }
 
 

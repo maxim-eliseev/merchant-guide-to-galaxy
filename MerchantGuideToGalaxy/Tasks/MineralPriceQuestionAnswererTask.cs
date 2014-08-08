@@ -43,17 +43,17 @@
 
         public void Run(string inputLine)
         {
-            var goodsNameAndAmountAsString = inputLine.MatchOneGroup(MatchingPattern);
-            var goodsNameAndAmount = LineParsingUtility.Split(goodsNameAndAmountAsString);
+            var mineralNameAndAmountAsString = inputLine.MatchOneGroup(MatchingPattern);
+            var mineralNameAndAmount = LineParsingUtility.Split(mineralNameAndAmountAsString);
 
-            var goodsName = goodsNameAndAmount.Last();
-            var alienNumber = goodsNameAndAmount.WithoutLast();
+            var mineralName = mineralNameAndAmount.Last();
+            var alienNumber = mineralNameAndAmount.WithoutLast();
 
-            if (!context.GoodsPricesPerUnit.ContainsKey(goodsName))
+            if (!context.MineralPricesPerUnit.ContainsKey(mineralName))
             {
-                throw new ArgumentException("Unknown goods name:" + goodsName);
+                throw new ArgumentException("Unknown mineral name:" + mineralName);
             }
-            decimal priceOfUnit = context.GoodsPricesPerUnit[goodsName];
+            decimal priceOfUnit = context.MineralPricesPerUnit[mineralName];
 
             var arabicNumber = alienToArabicConvertor.Convert(alienNumber);
             int numberOfUnits = arabicNumber;
@@ -61,7 +61,7 @@
             decimal totalPrice = priceOfUnit * numberOfUnits;
 
             var alienNumberAsString = string.Join(" ", alienNumber);
-            var response = string.Format("{0} {1} is {2} Credits", alienNumberAsString, goodsName, totalPrice);
+            var response = string.Format("{0} {1} is {2} Credits", alienNumberAsString, mineralName, totalPrice);
             context.Output.Add(response);
         }
     }

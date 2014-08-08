@@ -48,7 +48,7 @@
                 throw new ArgumentException("Input line cannot be parsed by MineralPriceImporterTask:" + inputLine);
             }
 
-            var goodsNameAndAmountAsString = extractedData.Item1;
+            var mineralNameAndAmountAsString = extractedData.Item1;
             string totalPriceAsString = extractedData.Item2;
 
             decimal totalPriceAsNumber;
@@ -57,16 +57,16 @@
                 throw new ArgumentException("Price is not a number:" + totalPriceAsNumber);
             }
 
-            var goodsNameAndAmount = LineParsingUtility.Split(goodsNameAndAmountAsString); // "glob glob Silver"
+            var mineralNameAndAmount = LineParsingUtility.Split(mineralNameAndAmountAsString); // "glob glob Silver"
 
-            IEnumerable<string> goodsAmountAsAlienNumber = goodsNameAndAmount.WithoutLast(); // "glob glob"
-            string goodsName = goodsNameAndAmount.Last(); // "Silver"
+            IEnumerable<string> mineralAmountAsAlienNumber = mineralNameAndAmount.WithoutLast(); // "glob glob"
+            string mineralName = mineralNameAndAmount.Last(); // "Silver"
 
-            var goodsAmount = this.alienToArabicConvertor.Convert(goodsAmountAsAlienNumber);
+            var mineralAmount = this.alienToArabicConvertor.Convert(mineralAmountAsAlienNumber);
 
-            var pricePerUnit = totalPriceAsNumber / goodsAmount;
+            var pricePerUnit = totalPriceAsNumber / mineralAmount;
 
-            context.GoodsPricesPerUnit[goodsName] = pricePerUnit;
+            context.MineralPricesPerUnit[mineralName] = pricePerUnit;
         }
     }
 }
