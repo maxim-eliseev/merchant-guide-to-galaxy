@@ -69,13 +69,13 @@
     <Compile Include="Tasks\TaskFactoryIntegrationTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MerchantGuideToGalaxy\Engine.csproj">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.csproj">
       <Project>{B6B825A2-6BFC-4EE6-9568-28B6EBFA803B}</Project>
       <Name>Engine</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

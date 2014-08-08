@@ -55,7 +55,7 @@
       <Project>{5826DDCF-FF22-44DC-A446-43DA272C065E}</Project>
       <Name>ConsoleApplication</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MerchantGuideToGalaxy\Engine.csproj">
+    <ProjectReference Include="..\Engine\Engine.csproj">
       <Project>{B6B825A2-6BFC-4EE6-9568-28B6EBFA803B}</Project>
       <Name>Engine</Name>
     </ProjectReference>

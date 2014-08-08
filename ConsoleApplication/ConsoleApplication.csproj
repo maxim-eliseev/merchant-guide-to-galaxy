@@ -61,7 +61,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MerchantGuideToGalaxy\Engine.csproj">
+    <ProjectReference Include="..\Engine\Engine.csproj">
       <Project>{B6B825A2-6BFC-4EE6-9568-28B6EBFA803B}</Project>
       <Name>Engine</Name>
     </ProjectReference>
