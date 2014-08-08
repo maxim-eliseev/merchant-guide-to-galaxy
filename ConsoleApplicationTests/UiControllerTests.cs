@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using ConsoleApplication;
+    using ConsoleApplication.Wrappers;
 
     using MerchantGuideToGalaxy.Core;
 
@@ -47,8 +48,7 @@
             this.uiController.Run(inputFilePath);
 
             // Assert
-            this.consoleWrapper.Verify(cw => cw.WriteLine("A"));
-            this.consoleWrapper.Verify(cw => cw.WriteLine("B"));
+            this.consoleWrapper.Verify(cw => cw.WriteLines(processorResult));
         }
 
         [TestMethod]
@@ -73,7 +73,7 @@
             this.uiController.Run("AnyPath");
 
             // Assert
-            this.consoleWrapper.Verify(cw => cw.WriteLine(processorOutputForLine1), Times.Once);
+            this.consoleWrapper.Verify(cw => cw.WriteLines(processorOutput), Times.Once);
         }        
     }
 }

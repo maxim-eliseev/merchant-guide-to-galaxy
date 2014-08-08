@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleWrapper.cs" />
+    <Compile Include="Wrappers\ConsoleWrapper.cs" />
     <Compile Include="DependencyInjection\ProcessorConfigurationModule.cs" />
-    <Compile Include="FileWrapper.cs" />
-    <Compile Include="IConsoleWrapper.cs" />
-    <Compile Include="IFileWrapper.cs" />
+    <Compile Include="Wrappers\FileWrapper.cs" />
+    <Compile Include="Wrappers\IConsoleWrapper.cs" />
+    <Compile Include="Wrappers\IFileWrapper.cs" />
     <Compile Include="IUiController.cs" />
     <Compile Include="UiController.cs" />
     <Compile Include="Program.cs" />

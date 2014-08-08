@@ -72,7 +72,7 @@
         }
         
         [TestMethod]
-        [ExpectedException(typeof(ParsingException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void Given_line_with_first_unknown_alien_symbol_when_Run_is_called_should_throw_error()
         {
             // Arrange
@@ -85,7 +85,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ParsingException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void Given_line_with_last_unknown_alien_symbol_when_Run_is_called_should_throw_error()
         {
             // Arrange

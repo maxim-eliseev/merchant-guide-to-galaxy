@@ -32,18 +32,7 @@
             // Assert
             Assert.IsTrue(results.Single().Contains("empty"));
         }
-
-        [TestMethod]
-        public void Given_correct_input_without_question_when_Run_is_called_should_warning_to_output()
-        {
-            // Arrange
-            // Act
-            var results = this.processor.Process(new[] { "glob is I" });
-
-            // Assert
-            Assert.IsTrue(results.Any(line => line.Contains("questions")));
-        }
-
+        
         [TestMethod]
         public void Given_correct_number_data_and_number_question_when_Run_is_called_should_return_correct_answer()
         {

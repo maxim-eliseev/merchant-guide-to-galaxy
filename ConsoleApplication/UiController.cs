@@ -5,6 +5,8 @@
     using System.IO;
     using System.Linq;
 
+    using ConsoleApplication.Wrappers;
+
     using MerchantGuideToGalaxy.Core;
 
     public class UiController : IUiController
