@@ -1,0 +1,7 @@
+C:\Repositories\Learning\MerchantGuideToGalaxy\MerchantGuideToGalaxy\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+C:\Repositories\Learning\MerchantGuideToGalaxy\MerchantGuideToGalaxy\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+C:\Repositories\Learning\MerchantGuideToGalaxy\MerchantGuideToGalaxy\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
+C:\Repositories\Learning\MerchantGuideToGalaxy\MerchantGuideToGalaxy\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+C:\Repositories\Learning\MerchantGuideToGalaxy\MerchantGuideToGalaxy\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
+C:\Repositories\Learning\MerchantGuideToGalaxy\MerchantGuideToGalaxy\UnitTestProject1\bin\Debug\MerchantGuideToGalaxy.exe
+C:\Repositories\Learning\MerchantGuideToGalaxy\MerchantGuideToGalaxy\UnitTestProject1\bin\Debug\MerchantGuideToGalaxy.pdb
