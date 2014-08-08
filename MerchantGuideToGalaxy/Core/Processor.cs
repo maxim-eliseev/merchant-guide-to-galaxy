@@ -9,11 +9,11 @@
 
     public class Processor : IProcessor
     {
-        private readonly Context context;
+        private readonly IContext context;
 
         private readonly TaskFactory taskFactory;
 
-        public Processor(Context context, TaskFactory taskFactory)
+        public Processor(IContext context, TaskFactory taskFactory)
         {
             this.context = context;
             this.taskFactory = taskFactory;

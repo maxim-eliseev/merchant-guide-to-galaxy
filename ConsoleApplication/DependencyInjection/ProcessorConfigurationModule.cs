@@ -1,5 +1,6 @@
 ﻿namespace ConsoleApplication.DependencyInjection
 {
+    using ConsoleApplication.Controllers;
     using ConsoleApplication.Wrappers;
 
     public class ConsoleConfigurationModule : Ninject.Modules.NinjectModule

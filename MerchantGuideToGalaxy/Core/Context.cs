@@ -2,19 +2,19 @@
 {
     using System.Collections.Generic;
 
-    public class Context
+    public class Context : IContext
     {
-        public readonly IDictionary<string, string> AlienToRomanNumberMap = new Dictionary<string, string>();
-
-        public readonly IDictionary<string, decimal> MineralPricesPerUnit = new Dictionary<string, decimal>();
-
-        public readonly IList<string> Output = new List<string>();
-
-        public void Clear()
+        public Context()
         {
-            this.AlienToRomanNumberMap.Clear();
-            this.MineralPricesPerUnit.Clear();
-            this.Output.Clear();
+            this.AlienToRomanNumberMap = new Dictionary<string, string>();
+            this.MineralPricesPerUnit = new Dictionary<string, decimal>();
+            this.Output = new List<string>();
         }
+
+        public IDictionary<string, string> AlienToRomanNumberMap { get; private set; }
+
+        public IDictionary<string, decimal> MineralPricesPerUnit { get; private set; }
+
+        public IList<string> Output { get; private set; }
     }
 }

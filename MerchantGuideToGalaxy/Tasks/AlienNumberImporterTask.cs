@@ -15,9 +15,9 @@
         //// .+ is one or more characters. Mutpliple words may be matched (since whitespaces are allowed)
         //// () indicates a capturing group
 
-        private readonly Context context;
+        private readonly IContext context;
 
-        public AlienNumberImporterTask(Context context)
+        public AlienNumberImporterTask(IContext context)
         {
             this.context = context;
         }

@@ -21,11 +21,11 @@
         //// [\w\s]+ is one or more word characters OR whitespaces. This is done to exclude "?" from matching.
         //// () indicates a capturing group
 
-        private readonly Context context;
+        private readonly IContext context;
 
         private readonly AlienToArabicConvertor alienToArabicConvertor;
 
-        public MineralPriceQuestionAnswererTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
+        public MineralPriceQuestionAnswererTask(IContext context, AlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
             this.alienToArabicConvertor = alienToArabicConvertor;

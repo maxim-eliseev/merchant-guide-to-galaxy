@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using ConsoleApplication;
+    using ConsoleApplication.Controllers;
     using ConsoleApplication.Wrappers;
 
     using MerchantGuideToGalaxy.Core;

@@ -1,5 +1,6 @@
 ﻿namespace ConsoleApplication
 {
+    using ConsoleApplication.Controllers;
     using ConsoleApplication.DependencyInjection;
 
     using MerchantGuideToGalaxy.DependencyInjection;

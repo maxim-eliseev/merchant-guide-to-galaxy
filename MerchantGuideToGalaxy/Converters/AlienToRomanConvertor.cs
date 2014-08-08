@@ -8,9 +8,9 @@
 
     public class AlienToRomanConvertor
     {
-        private readonly Context context;
+        private readonly IContext context;
 
-        public AlienToRomanConvertor(Context context)
+        public AlienToRomanConvertor(IContext context)
         {
             this.context = context;
         }

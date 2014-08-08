@@ -1,4 +1,4 @@
-﻿namespace ConsoleApplication
+﻿namespace ConsoleApplication.Controllers
 {
     public interface IUiController
     {

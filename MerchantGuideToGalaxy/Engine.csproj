@@ -51,6 +51,7 @@
     <Compile Include="Core\Context.cs" />
     <Compile Include="Converters\AlienToRomanConvertor.cs" />
     <Compile Include="Converters\AlienToArabicConvertor.cs" />
+    <Compile Include="Core\IContext.cs" />
     <Compile Include="Core\IProcessor.cs" />
     <Compile Include="DependencyInjection\ProcessorConfigurationModule.cs" />
     <Compile Include="Tasks\EmptyLineProcessingTask.cs" />

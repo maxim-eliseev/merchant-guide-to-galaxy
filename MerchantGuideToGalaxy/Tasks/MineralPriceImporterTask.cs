@@ -20,11 +20,11 @@
         //// (.+) is one or more any characters (including whitespace)
         //// (\w+) is one or more any characters (no whitespaces - just one word)
 
-        private readonly Context context;
+        private readonly IContext context;
 
         private readonly AlienToArabicConvertor alienToArabicConvertor;
 
-        public MineralPriceImporterTask(Context context, AlienToArabicConvertor alienToArabicConvertor)
+        public MineralPriceImporterTask(IContext context, AlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
             this.alienToArabicConvertor = alienToArabicConvertor;

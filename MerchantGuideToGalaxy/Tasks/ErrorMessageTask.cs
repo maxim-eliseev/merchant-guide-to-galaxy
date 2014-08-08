@@ -9,9 +9,9 @@
     {
         public const string GenericMessage = "I have no idea what you are talking about";
 
-        private readonly Context context;
+        private readonly IContext context;
 
-        public ErrorMessageTask(Context context)
+        public ErrorMessageTask(IContext context)
         {
             this.context = context;
         }
