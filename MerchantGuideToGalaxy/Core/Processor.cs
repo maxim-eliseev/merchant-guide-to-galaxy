@@ -51,7 +51,7 @@
             {
                 task.Run(inputLine);
             }
-            catch (ArgumentException e)
+            catch (ParsingException e)
             {
                 this.context.Output.Add(ErrorMessageTask.GenericMessage);
                 this.context.Output.Add("Details: " + e.Message);

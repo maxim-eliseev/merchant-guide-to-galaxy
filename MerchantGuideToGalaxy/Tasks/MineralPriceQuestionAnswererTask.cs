@@ -51,7 +51,7 @@
 
             if (!context.MineralPricesPerUnit.ContainsKey(mineralName))
             {
-                throw new ArgumentException("Unknown mineral name:" + mineralName);
+                throw new ParsingException("Unknown mineral name:" + mineralName);
             }
             decimal priceOfUnit = context.MineralPricesPerUnit[mineralName];
 

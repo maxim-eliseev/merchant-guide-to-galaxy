@@ -45,7 +45,7 @@
             var extractedData = inputLine.MatchTwoGroups(MatchingPattern);
             if (extractedData == null)
             {
-                throw new ArgumentException("Input line cannot be parsed by MineralPriceImporterTask:" + inputLine);
+                throw new ParsingException("Input line cannot be parsed by MineralPriceImporterTask:" + inputLine);
             }
 
             var mineralNameAndAmountAsString = extractedData.Item1;
@@ -54,7 +54,7 @@
             decimal totalPriceAsNumber;
             if (!decimal.TryParse(totalPriceAsString, out totalPriceAsNumber))
             {
-                throw new ArgumentException("Price is not a number:" + totalPriceAsNumber);
+                throw new ParsingException("Price is not a number:" + totalPriceAsNumber);
             }
 
             var mineralNameAndAmount = LineParsingUtility.Split(mineralNameAndAmountAsString); // "glob glob Silver"

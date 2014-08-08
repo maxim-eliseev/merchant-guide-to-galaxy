@@ -1,5 +1,4 @@
 ﻿To do
-- To extract a library project
 - To mark classes as internal
 
 On hold
