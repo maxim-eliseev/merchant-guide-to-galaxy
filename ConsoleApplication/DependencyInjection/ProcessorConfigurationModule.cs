@@ -1,5 +1,7 @@
 ﻿namespace ConsoleApplication.DependencyInjection
 {
+    using ConsoleApplication.Wrappers;
+
     public class ConsoleConfigurationModule : Ninject.Modules.NinjectModule
     {
         public override void Load()

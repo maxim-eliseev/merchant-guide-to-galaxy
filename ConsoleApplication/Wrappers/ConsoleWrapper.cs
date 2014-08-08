@@ -1,4 +1,4 @@
-﻿namespace ConsoleApplication
+﻿namespace ConsoleApplication.Wrappers
 {
     using System;
     using System.Collections.Generic;
