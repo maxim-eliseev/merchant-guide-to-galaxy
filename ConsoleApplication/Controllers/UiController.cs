@@ -38,14 +38,15 @@
         {
             if (!this.file.Exists(inputFileName))
             {
-                this.WriteMessageToConsole("Input file does not exist:" + inputFileName);
+                this.WriteMessageToConsole("Input file does not exist: " + inputFileName);
             }
             else
             {
                 var input = this.file.ReadAllLines(inputFileName);
                 this.console.WriteLines(input);
 
-                this.WriteMessageToConsole("Input file has been loaded:" + inputFileName);
+                this.WriteMessageToConsole("Input file has been loaded: " + inputFileName);
+                this.WriteMessageToConsole("The output is below.");
                 this.WriteMessageToConsole(string.Empty);
 
                 this.ProcessLines(input);
