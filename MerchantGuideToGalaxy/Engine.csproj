@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\IAlienToArabicConvertor.cs" />
+    <Compile Include="Converters\IAlienToRomanConvertor.cs" />
+    <Compile Include="Converters\IRomanToArabicConvertor.cs" />
     <Compile Include="Core\Context.cs" />
     <Compile Include="Converters\AlienToRomanConvertor.cs" />
     <Compile Include="Converters\AlienToArabicConvertor.cs" />

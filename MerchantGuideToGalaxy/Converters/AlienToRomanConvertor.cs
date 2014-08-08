@@ -6,7 +6,7 @@
 
     using MerchantGuideToGalaxy.Core;
 
-    public class AlienToRomanConvertor
+    public class AlienToRomanConvertor : IAlienToRomanConvertor
     {
         private readonly IContext context;
 

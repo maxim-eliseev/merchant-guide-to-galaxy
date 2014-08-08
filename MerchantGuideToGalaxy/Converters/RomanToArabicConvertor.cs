@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public class RomanToArabicConvertor
+    public class RomanToArabicConvertor : IRomanToArabicConvertor
     {
         private readonly Dictionary<char, int> romanToArabicNumberMap = new Dictionary<char, int>();
         private readonly Dictionary<string, string> subtractionNotationRomanToSimpleRomanMap = new Dictionary<string, string>();

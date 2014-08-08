@@ -2,13 +2,13 @@
 {
     using System.Collections.Generic;
 
-    public class AlienToArabicConvertor
+    public class AlienToArabicConvertor : IAlienToArabicConvertor
     {
-        private readonly AlienToRomanConvertor alienToRomanConvertor;
+        private readonly IAlienToRomanConvertor alienToRomanConvertor;
 
-        private readonly RomanToArabicConvertor romanToArabicConvertor;
+        private readonly IRomanToArabicConvertor romanToArabicConvertor;
 
-        public AlienToArabicConvertor(AlienToRomanConvertor alienToRomanConvertor, RomanToArabicConvertor romanToArabicConvertor)
+        public AlienToArabicConvertor(IAlienToRomanConvertor alienToRomanConvertor, IRomanToArabicConvertor romanToArabicConvertor)
         {
             this.alienToRomanConvertor = alienToRomanConvertor;
             this.romanToArabicConvertor = romanToArabicConvertor;

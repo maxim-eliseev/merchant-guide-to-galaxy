@@ -22,9 +22,9 @@
 
         private readonly IContext context;
 
-        private readonly AlienToArabicConvertor alienToArabicConvertor;
+        private readonly IAlienToArabicConvertor alienToArabicConvertor;
 
-        public MineralPriceImporterTask(IContext context, AlienToArabicConvertor alienToArabicConvertor)
+        public MineralPriceImporterTask(IContext context, IAlienToArabicConvertor alienToArabicConvertor)
         {
             this.context = context;
             this.alienToArabicConvertor = alienToArabicConvertor;

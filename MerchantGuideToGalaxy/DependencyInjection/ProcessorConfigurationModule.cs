@@ -1,5 +1,6 @@
 ﻿namespace MerchantGuideToGalaxy.DependencyInjection
 {
+    using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Tasks;
 
@@ -12,6 +13,10 @@
             this.Bind<ITaskFactory>().To<TaskFactory>();
 
             this.BindTasks();
+
+            this.Bind<IAlienToArabicConvertor>().To<AlienToArabicConvertor>();
+            this.Bind<IAlienToRomanConvertor>().To <AlienToRomanConvertor>();
+            this.Bind<IRomanToArabicConvertor>().To<RomanToArabicConvertor>();
         }
 
         private void BindTasks()
