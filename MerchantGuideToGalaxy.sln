@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchantGuideToGalaxy", "Me
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{41A39E55-4CFD-4475-8D9A-B0E0AD5A7649}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.csproj", "{5826DDCF-FF22-44DC-A446-43DA272C065E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{41A39E55-4CFD-4475-8D9A-B0E0AD5A7649}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41A39E55-4CFD-4475-8D9A-B0E0AD5A7649}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41A39E55-4CFD-4475-8D9A-B0E0AD5A7649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5826DDCF-FF22-44DC-A446-43DA272C065E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5826DDCF-FF22-44DC-A446-43DA272C065E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5826DDCF-FF22-44DC-A446-43DA272C065E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5826DDCF-FF22-44DC-A446-43DA272C065E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

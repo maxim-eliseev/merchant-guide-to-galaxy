@@ -1,4 +1,4 @@
-﻿namespace MerchantGuideToGalaxy
+﻿namespace ConsoleApplication
 {
     using System;
     using System.Collections.Generic;
