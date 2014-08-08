@@ -1,7 +1,0 @@
-C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\bin\Debug\MerchantGuideToGalaxy.dll
-C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\bin\Debug\MerchantGuideToGalaxy.pdb
-C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\bin\Debug\Ninject.dll
-C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\bin\Debug\Ninject.xml
-C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\obj\Debug\MerchantGuideToGalaxy.dll
-C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\obj\Debug\MerchantGuideToGalaxy.pdb
-C:\Repositories\Learning\MerchantGuideToGalaxy_GitHub\MerchantGuideToGalaxy\obj\Debug\Engine.csprojResolveAssemblyReference.cache

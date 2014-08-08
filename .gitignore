@@ -6,3 +6,7 @@
 /ConsoleApplication/obj
 /ConsoleApplicationTests/bin
 /ConsoleApplicationTests/obj
+/Engine/bin
+/Engine/obj
+/EngineTests/bin
+/EngineTests/obj
