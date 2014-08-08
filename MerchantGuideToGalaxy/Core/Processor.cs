@@ -11,9 +11,9 @@
     {
         private readonly IContext context;
 
-        private readonly TaskFactory taskFactory;
+        private readonly ITaskFactory taskFactory;
 
-        public Processor(IContext context, TaskFactory taskFactory)
+        public Processor(IContext context, ITaskFactory taskFactory)
         {
             this.context = context;
             this.taskFactory = taskFactory;

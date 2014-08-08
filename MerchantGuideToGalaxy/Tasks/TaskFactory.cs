@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public class TaskFactory
+    public class TaskFactory : ITaskFactory
     {
         private readonly IEnumerable<ITask> tasks;
 

@@ -7,8 +7,9 @@
     {
         public override void Load()
         {
-            this.Bind<IProcessor>().To<Processor>();
+            this.Bind<IProcessor>().To<Processor>();            
             this.Bind<IContext>().To<Context>().InSingletonScope(); // Context is sinlgeton because we want to reuse same instance in all the classes
+            this.Bind<ITaskFactory>().To<TaskFactory>();
 
             this.BindTasks();
         }

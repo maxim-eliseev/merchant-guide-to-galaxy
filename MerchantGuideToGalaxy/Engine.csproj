@@ -56,6 +56,7 @@
     <Compile Include="DependencyInjection\ProcessorConfigurationModule.cs" />
     <Compile Include="Tasks\EmptyLineProcessingTask.cs" />
     <Compile Include="Tasks\ErrorMessageTask.cs" />
+    <Compile Include="Tasks\ITaskFactory.cs" />
     <Compile Include="Tasks\MineralPriceQuestionAnswererTask.cs" />
     <Compile Include="Tasks\MineralPriceImporterTask.cs" />
     <Compile Include="Tasks\TaskFactory.cs" />
