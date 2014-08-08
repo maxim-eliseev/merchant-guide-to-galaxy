@@ -1,0 +1,4 @@
+﻿On hold
+- Logging is out of scope
+- Handling lines with multiple whitespaces is out of scope
+- Mineral names are case-sensitive at the moment. "Silver" and "silver" will be considered different minerals.
