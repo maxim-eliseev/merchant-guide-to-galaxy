@@ -6,6 +6,7 @@
     using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Tasks;
+    using MerchantGuideToGalaxy.Utils;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -50,7 +51,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ParsingException))]
         public void Given_line_with_unknown_mineral_name_when_Run_is_called_should_throw_error()
         {
             // Arrange
@@ -64,7 +65,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ParsingException))]
         public void Given_line_with_first_unknown_alien_symbol_when_Run_is_called_should_throw_error()
         {
             // Arrange
@@ -77,7 +78,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ParsingException))]
         public void Given_line_with_last_unknown_alien_symbol_when_Run_is_called_should_throw_error()
         {
             // Arrange

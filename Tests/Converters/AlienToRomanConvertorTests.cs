@@ -4,6 +4,7 @@
 
     using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Core;
+    using MerchantGuideToGalaxy.Utils;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

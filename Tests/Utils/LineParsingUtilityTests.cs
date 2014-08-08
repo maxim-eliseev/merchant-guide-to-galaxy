@@ -50,7 +50,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ParsingException))]
         public void Given_alien_number_import_string_twice_when_MatchTwoGroups_called_should_throw_error()
         {
             // Arrange

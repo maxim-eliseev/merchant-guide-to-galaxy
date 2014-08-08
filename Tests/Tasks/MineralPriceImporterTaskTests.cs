@@ -5,6 +5,7 @@
     using MerchantGuideToGalaxy.Converters;
     using MerchantGuideToGalaxy.Core;
     using MerchantGuideToGalaxy.Tasks;
+    using MerchantGuideToGalaxy.Utils;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -47,7 +48,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ParsingException))]
         public void Given_line_without_Credits_as_last_word_when_Run_is_called_should_throw_error()
         {
             // Act
@@ -55,7 +56,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ParsingException))]
         public void Given_line_without_IS_when_Run_is_called_should_throw_error()
         {
             // Act
@@ -63,7 +64,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ParsingException))]
         public void Given_line_with_non_numerical_price_when_Run_is_called_should_throw_error()
         {
             // Act
@@ -71,7 +72,7 @@
         }
         
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ParsingException))]
         public void Given_line_with_first_unknown_alien_symbol_when_Run_is_called_should_throw_error()
         {
             // Arrange
@@ -84,7 +85,7 @@
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ParsingException))]
         public void Given_line_with_last_unknown_alien_symbol_when_Run_is_called_should_throw_error()
         {
             // Arrange
